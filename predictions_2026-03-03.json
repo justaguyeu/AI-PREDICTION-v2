@@ -1,0 +1,2702 @@
+{
+    "Wolverhampton_vs_Liverpool": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:36.8% X:42.0% 2:21.2% [Score:6.0 (Pred:3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "78%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "96%",
+                "details": "OVER:96%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "96%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "84%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "65%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "56%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "2-2",
+            "4-0",
+            "2-0"
+        ],
+        "analysis": {
+            "net_score": 6.0,
+            "text_volume": 54
+        }
+    },
+    "Bournemouth_vs_Brentford": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "HIGH",
+                "breakdown": "1:62.7% X:28.3% 2:9.0% [Score:18.0 (Pred:9 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "91%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-2",
+            "2-2",
+            "2-1"
+        ],
+        "analysis": {
+            "net_score": 18.0,
+            "text_volume": 52
+        }
+    },
+    "Leeds_vs_Sunderland": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.0% X:42.0% 2:29.0% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "71%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "3-3",
+            "2-3"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 54
+        }
+    },
+    "Everton_vs_Burnley": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "AWAY WIN",
+                "confidence": "MEDIUM",
+                "breakdown": "1:14.9% X:35.3% 2:49.8% [Score:-12.0 (Pred:-6 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "X2",
+                "confidence": "85%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "2-3",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": -12.0,
+            "text_volume": 50
+        }
+    },
+    "Barcelona_vs_Atletico Madrid": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "2-3",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 43
+        }
+    },
+    "Como_vs_Inter": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "HIGH",
+                "breakdown": "1:64.8% X:25.9% 2:9.3% [Score:18.0 (Pred:9 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "90%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "2-0",
+            "3-3",
+            "2-3"
+        ],
+        "analysis": {
+            "net_score": 18.0,
+            "text_volume": 57
+        }
+    },
+    "Strasbourg_vs_Reims": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "HIGH",
+                "breakdown": "1:63.2% X:25.9% 2:10.9% [Score:24.0 (Pred:12 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "89%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "97%",
+                "details": "OVER:97%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "97%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "70%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "50%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "69%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "2-0",
+            "1-0",
+            "3-0"
+        ],
+        "analysis": {
+            "net_score": 24.0,
+            "text_volume": 49
+        }
+    },
+    "Sporting Lisbon_vs_Porto": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "MEDIUM",
+                "breakdown": "1:49.8% X:35.3% 2:14.9% [Score:12.0 (Pred:6 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "85%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "97%",
+                "details": "OVER:97%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "97%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "70%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "50%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "69%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "2-0",
+            "3-0",
+            "4-0"
+        ],
+        "analysis": {
+            "net_score": 12.0,
+            "text_volume": 47
+        }
+    },
+    "Ipswich_vs_Hull City": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "HIGH",
+                "breakdown": "1:64.8% X:25.9% 2:9.3% [Score:18.0 (Pred:9 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "90%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "82%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "60%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "61%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "78%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "2-0",
+            "3-2",
+            "3-0"
+        ],
+        "analysis": {
+            "net_score": 18.0,
+            "text_volume": 47
+        }
+    },
+    "Port Vale_vs_Bristol City": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "AWAY WIN",
+                "confidence": "LOW",
+                "breakdown": "1:23.6% X:35.3% 2:41.1% [Score:-6.0 (Pred:-3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "X2",
+                "confidence": "76%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "1-2",
+            "0-1"
+        ],
+        "analysis": {
+            "net_score": -6.0,
+            "text_volume": 52
+        }
+    },
+    "NEC Nijmegen_vs_PSV Eindhoven": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "93%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "84%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "70%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "2-3",
+            "2-2",
+            "3-3"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 45
+        }
+    },
+    "Cesena_vs_Monza": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "LOW",
+                "breakdown": "1:39.9% X:37.1% 2:23.0% [Score:6.0 (Pred:3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "77%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "4-0",
+            "1-1",
+            "2-0"
+        ],
+        "analysis": {
+            "net_score": 6.0,
+            "text_volume": 58
+        }
+    },
+    "Cambuur_vs_Almere City": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "LOW",
+                "breakdown": "1:41.1% X:35.3% 2:23.6% [Score:6.0 (Pred:3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "76%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-1",
+            "2-0",
+            "1-0"
+        ],
+        "analysis": {
+            "net_score": 6.0,
+            "text_volume": 57
+        }
+    },
+    "Dundee Utd_vs_St Mirren": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:24.6% X:42.0% 2:33.3% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "X2",
+                "confidence": "75%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "2-1",
+            "1-0"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 54
+        }
+    },
+    "Republic of Ireland W_vs_France W": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.0% X:42.0% 2:29.0% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "71%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "3-3",
+            "2-3"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 54
+        }
+    },
+    "Mlada Boleslav_vs_Sparta Prague": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-2",
+            "3-3",
+            "2-3"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 60
+        }
+    },
+    "Virtus Entella_vs_Modena": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "HIGH",
+                "breakdown": "1:64.8% X:25.9% 2:9.3% [Score:30.0 (Pred:15 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "90%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "2-0",
+            "3-3",
+            "2-3"
+        ],
+        "analysis": {
+            "net_score": 30.0,
+            "text_volume": 61
+        }
+    },
+    "FC Gyori Eto_vs_Kecskemeti TE": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "LOW",
+                "breakdown": "1:38.9% X:35.3% 2:25.8% [Score:4.5 (Pred:3 Form:-1)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "74%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "81%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "60%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "61%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "79%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-1",
+            "2-0",
+            "3-0"
+        ],
+        "analysis": {
+            "net_score": 4.5,
+            "text_volume": 66
+        }
+    },
+    "Venezia_vs_Avellino": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "16%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "2-3",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 55
+        }
+    },
+    "AC Reggiana_vs_Sudtirol": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "LOW",
+                "breakdown": "1:38.9% X:35.3% 2:25.8% [Score:4.5 (Pred:3 Form:-1)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "74%"
+            },
+            "over_under": {
+                "prediction": "UNDER 4.5",
+                "confidence": "97%",
+                "details": "UNDER:97%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "79%"
+                    },
+                    {
+                        "label": "UNDER 1.5",
+                        "conf": "52%"
+                    },
+                    {
+                        "label": "UNDER 2.5",
+                        "conf": "78%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "92%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "97%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "0-0",
+            "1-0",
+            "2-1"
+        ],
+        "analysis": {
+            "net_score": 4.5,
+            "text_volume": 63
+        }
+    },
+    "Calcio Lecco_vs_Renate": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "2-3",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 56
+        }
+    },
+    "Wimborne Town_vs_Taunton Town": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "LOW",
+                "breakdown": "1:39.9% X:37.1% 2:23.0% [Score:6.0 (Pred:3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "77%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "2-1",
+            "1-1",
+            "2-0"
+        ],
+        "analysis": {
+            "net_score": 6.0,
+            "text_volume": 62
+        }
+    },
+    "FC Winterthur_vs_Servette Geneva": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "HIGH",
+                "breakdown": "1:64.8% X:25.9% 2:9.3% [Score:36.0 (Pred:18 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "90%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "82%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "60%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "61%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "78%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "4-0",
+            "2-0",
+            "3-0"
+        ],
+        "analysis": {
+            "net_score": 36.0,
+            "text_volume": 62
+        }
+    },
+    "Rapid Vienna II_vs_Austria Salzburg": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "AWAY WIN",
+                "confidence": "LOW",
+                "breakdown": "1:25.8% X:35.3% 2:38.9% [Score:-4.5 (Pred:0 Form:-3)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "X2",
+                "confidence": "74%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "1-2",
+            "0-1"
+        ],
+        "analysis": {
+            "net_score": -4.5,
+            "text_volume": 55
+        }
+    },
+    "Al Wehda_vs_AL Tai": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "MEDIUM",
+                "breakdown": "1:51.3% X:33.3% 2:15.3% [Score:12.0 (Pred:6 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "0%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "84%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "93%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "84%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "71%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-1",
+            "2-2",
+            "2-3"
+        ],
+        "analysis": {
+            "net_score": 12.0,
+            "text_volume": 54
+        }
+    },
+    "Triestina_vs_Dolomiti Bellunesi": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:27.8% X:44.4% 2:27.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "72%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "1-1",
+            "2-1"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 59
+        }
+    },
+    "Vecomp Verona_vs_Novara": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.0% X:42.0% 2:29.0% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "71%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "3-3",
+            "2-3"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 56
+        }
+    },
+    "Albinoleffe_vs_Union Brescia": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "LOW",
+                "breakdown": "1:41.1% X:35.3% 2:23.6% [Score:6.0 (Pred:3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "76%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "96%",
+                "details": "OVER:96%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "96%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "84%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "65%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "56%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "2-0",
+            "3-0",
+            "1-0"
+        ],
+        "analysis": {
+            "net_score": 6.0,
+            "text_volume": 65
+        }
+    },
+    "Vicenza_vs_Trento Calcio 1921": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "2-3",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 56
+        }
+    },
+    "Bromley_vs_Oldham": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "2-1",
+            "1-0"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 61
+        }
+    },
+    "South Shields_vs_AFC Fylde": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "LOW",
+                "breakdown": "1:41.1% X:35.3% 2:23.6% [Score:6.0 (Pred:3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "76%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-0",
+            "2-0",
+            "1-0"
+        ],
+        "analysis": {
+            "net_score": 6.0,
+            "text_volume": 64
+        }
+    },
+    "Chesterfield_vs_Colchester": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "2-1",
+            "1-0"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 62
+        }
+    },
+    "Enfield Town_vs_Hampton and Richmond": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.0% X:42.0% 2:29.0% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "71%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "2-1",
+            "1-0"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 63
+        }
+    },
+    "Kettering Town_vs_Stratford Town": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:28.2% X:43.5% 2:28.2% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "71%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "1-1",
+            "2-1"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 61
+        }
+    },
+    "Kidderminster_vs_Alfreton": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.0% X:42.0% 2:29.0% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "71%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "2-1",
+            "1-0"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 63
+        }
+    },
+    "Lewes_vs_Billericay Town": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "AWAY WIN",
+                "confidence": "MEDIUM",
+                "breakdown": "1:14.9% X:35.3% 2:49.8% [Score:-12.0 (Pred:-6 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "X2",
+                "confidence": "85%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "0-1",
+            "1-3",
+            "0-3"
+        ],
+        "analysis": {
+            "net_score": -12.0,
+            "text_volume": 62
+        }
+    },
+    "Exeter_vs_Burton": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.0% X:42.0% 2:29.0% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "71%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "2-1",
+            "1-0"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 55
+        }
+    },
+    "Maidstone_vs_Weston Super Mare": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "95%",
+                "details": "OVER:95%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "80%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "57%"
+                    },
+                    {
+                        "label": "UNDER 3.5",
+                        "conf": "64%"
+                    },
+                    {
+                        "label": "UNDER 4.5",
+                        "conf": "81%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "2-1",
+            "1-0"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 54
+        }
+    },
+    "Gap Connahs Quay_vs_The New Saints": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "LOW",
+                "breakdown": "1:41.1% X:35.3% 2:23.6% [Score:6.0 (Pred:3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "0%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "76%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "96%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "89%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "76%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "60%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-0",
+            "2-2",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": 6.0,
+            "text_volume": 58
+        }
+    },
+    "Dunfermline_vs_Ross County": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.0% X:42.0% 2:29.0% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "16%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "71%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "2-3",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 43
+        }
+    },
+    "Darlington_vs_Macclesfield FC": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "HIGH",
+                "breakdown": "1:64.8% X:25.9% 2:9.3% [Score:22.5 (Pred:9 Form:3)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "16%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "90%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-2",
+            "2-1",
+            "3-3"
+        ],
+        "analysis": {
+            "net_score": 22.5,
+            "text_volume": 59
+        }
+    },
+    "Bury Town FC_vs_Quorn FC": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.0% X:42.0% 2:29.0% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "71%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "94%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "85%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "72%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-1",
+            "3-2",
+            "3-3"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 59
+        }
+    },
+    "Alvechurch_vs_Stourbridge": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "2-3",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 55
+        }
+    },
+    "Bath City_vs_Slough Town": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "LOW",
+                "breakdown": "1:38.8% X:38.8% 2:22.3% [Score:6.0 (Pred:3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "77%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "1-1",
+            "2-3"
+        ],
+        "analysis": {
+            "net_score": 6.0,
+            "text_volume": 52
+        }
+    },
+    "Hartlepool_vs_Sutton United": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "2-3",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 53
+        }
+    },
+    "Wealdstone_vs_Morecambe": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.8% X:40.5% 2:29.8% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "48%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "70%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "2-3",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 64
+        }
+    },
+    "Rochdale_vs_Brackley Town": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "AWAY WIN",
+                "confidence": "LOW",
+                "breakdown": "1:23.0% X:37.1% 2:39.9% [Score:-6.0 (Pred:-3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "X2",
+                "confidence": "77%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-3",
+            "1-2",
+            "1-1"
+        ],
+        "analysis": {
+            "net_score": -6.0,
+            "text_volume": 61
+        }
+    },
+    "Boston Utd_vs_Woking": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "HOME WIN",
+                "confidence": "HIGH",
+                "breakdown": "1:58.7% X:28.3% 2:13.0% [Score:16.5 (Pred:9 Form:-1)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "87%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "97%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "90%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "79%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "63%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-2",
+            "2-1",
+            "1-1"
+        ],
+        "analysis": {
+            "net_score": 16.5,
+            "text_volume": 54
+        }
+    },
+    "Spartans FC_vs_Stirling": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "DRAW",
+                "confidence": "LOW",
+                "breakdown": "1:29.0% X:42.0% 2:29.0% [Score:0.0 (Pred:0 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "1X",
+                "confidence": "71%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "3-3",
+            "2-3",
+            "3-2"
+        ],
+        "analysis": {
+            "net_score": 0.0,
+            "text_volume": 62
+        }
+    },
+    "Grimsby_vs_Salford City": {
+        "status": "success",
+        "prediction": {
+            "1x2": {
+                "prediction": "AWAY WIN",
+                "confidence": "LOW",
+                "breakdown": "1:23.6% X:35.3% 2:41.1% [Score:-6.0 (Pred:-3 Form:0)]"
+            },
+            "btts": {
+                "prediction": "YES",
+                "confidence": "60%"
+            },
+            "dc": {
+                "prediction": "X2",
+                "confidence": "76%"
+            },
+            "over_under": {
+                "prediction": "OVER 0.5",
+                "confidence": "99%",
+                "details": "OVER:99%",
+                "all_thresholds": [
+                    {
+                        "label": "OVER 0.5",
+                        "conf": "99%"
+                    },
+                    {
+                        "label": "OVER 1.5",
+                        "conf": "98%"
+                    },
+                    {
+                        "label": "OVER 2.5",
+                        "conf": "95%"
+                    },
+                    {
+                        "label": "OVER 3.5",
+                        "conf": "87%"
+                    },
+                    {
+                        "label": "OVER 4.5",
+                        "conf": "75%"
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            "1-2",
+            "3-3",
+            "2-3"
+        ],
+        "analysis": {
+            "net_score": -6.0,
+            "text_volume": 56
+        }
+    }
+}

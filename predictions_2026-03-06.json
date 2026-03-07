@@ -1,0 +1,3810 @@
+{
+    "Adelaide United FC_vs_Wellington Phoenix FC": {
+        "status": "success",
+        "home": "Adelaide United FC",
+        "away": "Wellington Phoenix FC",
+        "overall_confidence": "HIGH",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "87.6%",
+                "options": {
+                    "1": 87.6,
+                    "X": 10.1,
+                    "2": 1.8
+                }
+            },
+            "boosted": {
+                "prediction": "HOME WIN",
+                "confidence": "92.6%"
+            },
+            "double_chance": {
+                "prediction": "1X DC",
+                "confidence": "97.7%",
+                "options": {
+                    "1X": 97.7,
+                    "X2": 11.9,
+                    "12": 89.4
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "83.4%",
+                "options": {
+                    "YES": 16.6,
+                    "NO": 83.4
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "86.8%",
+                "options": {
+                    "Home": 86.8,
+                    "Away": 6.8,
+                    "None": 6.4
+                }
+            },
+            "ou_ft": {
+                "prediction": "OVER 2.5",
+                "confidence": "51.4%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 93.1
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 75.6
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O2.5",
+                        "confidence": 51.4
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 70.3
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "OVER 1.5",
+                "confidence": "72.3%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 92.2
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 72.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 53.1
+                    }
+                ],
+                "label": "Adelaide United FC O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "98.2%",
+                "all_thresholds": [
+                    {
+                        "pick": "UNDER",
+                        "label": "U0.5",
+                        "confidence": 81.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 98.2
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 99.9
+                    }
+                ],
+                "label": "Wellington Phoenix FC O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "62.5%",
+                "options": {
+                    "1/1": 62.5,
+                    "X/1": 22.5,
+                    "X/X": 8.2,
+                    "2/1": 1.0
+                }
+            },
+            "handicap": {
+                "prediction": "1 (-1)",
+                "confidence": "66.8%",
+                "options": {
+                    "1 (-1)": 66.8,
+                    "X (-1)": 20.8,
+                    "2 (-1)": 11.9
+                }
+            },
+            "1x2_h1": {
+                "prediction": "HOME WIN",
+                "confidence": "64.9%",
+                "options": {
+                    "1": 64.9,
+                    "X": 32.1,
+                    "2": 2.9
+                }
+            },
+            "1x2_h2": {
+                "prediction": "HOME WIN",
+                "confidence": "71.3%",
+                "options": {
+                    "1": 71.3,
+                    "X": 25.6,
+                    "2": 2.8
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "64.9%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 70.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 64.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 87.1
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "55.4%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 77.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 55.4
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 80.6
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "2 - 0",
+                "prob": 20.784545874830794
+            },
+            {
+                "score": "3 - 0",
+                "prob": 17.666863993606178
+            },
+            {
+                "score": "1 - 0",
+                "prob": 16.301604607710427
+            },
+            {
+                "score": "4 - 0",
+                "prob": 11.26262579592394
+            },
+            {
+                "score": "0 - 0",
+                "prob": 6.392786120670754
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 2.55,
+            "away_xg": 0.2
+        },
+        "score": 12.0,
+        "draw_signals": 1
+    },
+    "Bayern Munich_vs_Borussia Monchengladbach": {
+        "status": "success",
+        "home": "Bayern Munich",
+        "away": "Borussia Monchengladbach",
+        "overall_confidence": "HIGH",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "73.4%",
+                "options": {
+                    "1": 73.4,
+                    "X": 19.0,
+                    "2": 7.6
+                }
+            },
+            "boosted": {
+                "prediction": "HOME WIN",
+                "confidence": "78.4%"
+            },
+            "double_chance": {
+                "prediction": "1X DC",
+                "confidence": "92.3%",
+                "options": {
+                    "1X": 92.3,
+                    "X2": 26.5,
+                    "12": 80.9
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "69.0%",
+                "options": {
+                    "YES": 31.0,
+                    "NO": 69.0
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "73.9%",
+                "options": {
+                    "Home": 73.9,
+                    "Away": 17.0,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "OVER 1.5",
+                "confidence": "58.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 85.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 58.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 69.0
+                    }
+                ],
+                "label": "Bayern Munich O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "92.5%",
+                "all_thresholds": [
+                    {
+                        "pick": "UNDER",
+                        "label": "U0.5",
+                        "confidence": 63.8
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 92.5
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 98.9
+                    }
+                ],
+                "label": "Borussia Monchengladbach O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "48.1%",
+                "options": {
+                    "1/1": 48.1,
+                    "X/1": 22.8,
+                    "X/X": 13.8,
+                    "2/2": 3.8
+                }
+            },
+            "handicap": {
+                "prediction": "1 (-1)",
+                "confidence": "46.7%",
+                "options": {
+                    "1 (-1)": 46.7,
+                    "X (-1)": 26.7,
+                    "2 (-1)": 26.5
+                }
+            },
+            "1x2_h1": {
+                "prediction": "HOME WIN",
+                "confidence": "51.4%",
+                "options": {
+                    "1": 51.4,
+                    "X": 40.3,
+                    "2": 8.3
+                }
+            },
+            "1x2_h2": {
+                "prediction": "HOME WIN",
+                "confidence": "57.1%",
+                "options": {
+                    "1": 57.1,
+                    "X": 34.3,
+                    "2": 8.5
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.2
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 0",
+                "prob": 17.690000891435435
+            },
+            {
+                "score": "2 - 0",
+                "prob": 17.24775086914955
+            },
+            {
+                "score": "3 - 0",
+                "prob": 11.21103806494721
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "1 - 1",
+                "prob": 7.9605004011459455
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.95,
+            "away_xg": 0.45
+        },
+        "score": 6.0,
+        "draw_signals": 1
+    },
+    "Paris Saint-Germain_vs_AS Monaco": {
+        "status": "success",
+        "home": "Paris Saint-Germain",
+        "away": "AS Monaco",
+        "overall_confidence": "LOW",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "43.6%",
+                "options": {
+                    "1": 43.6,
+                    "X": 27.3,
+                    "2": 29.1
+                }
+            },
+            "boosted": {
+                "prediction": "OVER 1.5",
+                "confidence": "69.1%"
+            },
+            "double_chance": {
+                "prediction": "12 DC",
+                "confidence": "72.7%",
+                "options": {
+                    "1X": 70.9,
+                    "X2": 56.4,
+                    "12": 72.7
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "51.9%",
+                "options": {
+                    "YES": 48.1,
+                    "NO": 51.9
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "51.1%",
+                "options": {
+                    "Home": 51.1,
+                    "Away": 39.8,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.9
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "UNDER 1.5",
+                "confidence": "60.9%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 74.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 60.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 84.5
+                    }
+                ],
+                "label": "Paris Saint-Germain O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "71.7%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 65.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 71.7
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 91.0
+                    }
+                ],
+                "label": "AS Monaco O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "25.7%",
+                "options": {
+                    "1/1": 25.7,
+                    "X/X": 17.5,
+                    "2/2": 16.3,
+                    "X/1": 15.7
+                }
+            },
+            "handicap": {
+                "prediction": "2 (-1)",
+                "confidence": "56.4%",
+                "options": {
+                    "1 (-1)": 20.4,
+                    "X (-1)": 23.2,
+                    "2 (-1)": 56.4
+                }
+            },
+            "1x2_h1": {
+                "prediction": "DRAW",
+                "confidence": "44.4%",
+                "options": {
+                    "1": 32.2,
+                    "X": 44.4,
+                    "2": 23.4
+                }
+            },
+            "1x2_h2": {
+                "prediction": "DRAW",
+                "confidence": "39.5%",
+                "options": {
+                    "1": 35.3,
+                    "X": 39.5,
+                    "2": 25.2
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 1",
+                "prob": 12.859269878774224
+            },
+            {
+                "score": "1 - 0",
+                "prob": 12.246923694070688
+            },
+            {
+                "score": "0 - 1",
+                "prob": 9.525385095388312
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "2 - 1",
+                "prob": 8.680007168172601
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.35,
+            "away_xg": 1.05
+        },
+        "score": 0.0,
+        "draw_signals": 1
+    },
+    "SSC Napoli_vs_Torino FC": {
+        "status": "success",
+        "home": "SSC Napoli",
+        "away": "Torino FC",
+        "overall_confidence": "HIGH",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "73.4%",
+                "options": {
+                    "1": 73.4,
+                    "X": 19.0,
+                    "2": 7.6
+                }
+            },
+            "boosted": {
+                "prediction": "HOME WIN",
+                "confidence": "78.4%"
+            },
+            "double_chance": {
+                "prediction": "1X DC",
+                "confidence": "92.3%",
+                "options": {
+                    "1X": 92.3,
+                    "X2": 26.5,
+                    "12": 80.9
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "69.0%",
+                "options": {
+                    "YES": 31.0,
+                    "NO": 69.0
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "73.9%",
+                "options": {
+                    "Home": 73.9,
+                    "Away": 17.0,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "OVER 1.5",
+                "confidence": "58.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 85.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 58.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 69.0
+                    }
+                ],
+                "label": "SSC Napoli O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "92.5%",
+                "all_thresholds": [
+                    {
+                        "pick": "UNDER",
+                        "label": "U0.5",
+                        "confidence": 63.8
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 92.5
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 98.9
+                    }
+                ],
+                "label": "Torino FC O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "48.1%",
+                "options": {
+                    "1/1": 48.1,
+                    "X/1": 22.8,
+                    "X/X": 13.8,
+                    "2/2": 3.8
+                }
+            },
+            "handicap": {
+                "prediction": "1 (-1)",
+                "confidence": "46.7%",
+                "options": {
+                    "1 (-1)": 46.7,
+                    "X (-1)": 26.7,
+                    "2 (-1)": 26.5
+                }
+            },
+            "1x2_h1": {
+                "prediction": "HOME WIN",
+                "confidence": "51.4%",
+                "options": {
+                    "1": 51.4,
+                    "X": 40.3,
+                    "2": 8.3
+                }
+            },
+            "1x2_h2": {
+                "prediction": "HOME WIN",
+                "confidence": "57.1%",
+                "options": {
+                    "1": 57.1,
+                    "X": 34.3,
+                    "2": 8.5
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.2
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 0",
+                "prob": 17.690000891435435
+            },
+            {
+                "score": "2 - 0",
+                "prob": 17.24775086914955
+            },
+            {
+                "score": "3 - 0",
+                "prob": 11.21103806494721
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "1 - 1",
+                "prob": 7.9605004011459455
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.95,
+            "away_xg": 0.45
+        },
+        "score": 6.0,
+        "draw_signals": 1
+    },
+    "RC Celta de Vigo_vs_Real Madrid": {
+        "status": "success",
+        "home": "RC Celta de Vigo",
+        "away": "Real Madrid",
+        "overall_confidence": "HIGH",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "AWAY WIN",
+                "confidence": "79.9%",
+                "options": {
+                    "1": 4.2,
+                    "X": 15.8,
+                    "2": 79.9
+                }
+            },
+            "boosted": {
+                "prediction": "AWAY WIN",
+                "confidence": "84.9%"
+            },
+            "double_chance": {
+                "prediction": "X2 DC",
+                "confidence": "95.6%",
+                "options": {
+                    "1X": 20.0,
+                    "X2": 95.6,
+                    "12": 84.1
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "77.3%",
+                "options": {
+                    "YES": 22.7,
+                    "NO": 77.3
+                }
+            },
+            "next_goal": {
+                "prediction": "Away",
+                "confidence": "79.6%",
+                "options": {
+                    "Home": 11.4,
+                    "Away": 79.6,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "UNDER 1.5",
+                "confidence": "96.3%",
+                "all_thresholds": [
+                    {
+                        "pick": "UNDER",
+                        "label": "U0.5",
+                        "confidence": 74.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 96.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 99.6
+                    }
+                ],
+                "label": "RC Celta de Vigo O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "OVER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 87.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 65.0
+                    }
+                ],
+                "label": "Real Madrid O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "2/2",
+                "confidence": "53.8%",
+                "options": {
+                    "2/2": 53.8,
+                    "X/2": 23.8,
+                    "X/X": 12.3,
+                    "1/1": 2.1
+                }
+            },
+            "handicap": {
+                "prediction": "2 (-1)",
+                "confidence": "95.6%",
+                "options": {
+                    "1 (-1)": 0.6,
+                    "X (-1)": 3.7,
+                    "2 (-1)": 95.6
+                }
+            },
+            "1x2_h1": {
+                "prediction": "AWAY WIN",
+                "confidence": "56.3%",
+                "options": {
+                    "1": 5.2,
+                    "X": 38.4,
+                    "2": 56.3
+                }
+            },
+            "1x2_h2": {
+                "prediction": "AWAY WIN",
+                "confidence": "62.6%",
+                "options": {
+                    "1": 5.3,
+                    "X": 32.1,
+                    "2": 62.6
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.2
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "0 - 2",
+                "prob": 20.003308700315458
+            },
+            {
+                "score": "0 - 1",
+                "prob": 19.050770190776625
+            },
+            {
+                "score": "0 - 3",
+                "prob": 14.002316090220823
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "0 - 4",
+                "prob": 7.351215947365931
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 0.3,
+            "away_xg": 2.1
+        },
+        "score": 10.5,
+        "draw_signals": 1
+    },
+    "Wolverhampton Wanderers_vs_FC Famalicao": {
+        "status": "success",
+        "home": "Wolverhampton Wanderers",
+        "away": "FC Famalicao",
+        "overall_confidence": "HIGH",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "84.4%",
+                "options": {
+                    "1": 84.4,
+                    "X": 13.0,
+                    "2": 2.4
+                }
+            },
+            "boosted": {
+                "prediction": "HOME WIN",
+                "confidence": "89.4%"
+            },
+            "double_chance": {
+                "prediction": "1X DC",
+                "confidence": "97.4%",
+                "options": {
+                    "1X": 97.4,
+                    "X2": 15.3,
+                    "12": 86.8
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "83.8%",
+                "options": {
+                    "YES": 16.2,
+                    "NO": 83.8
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "83.9%",
+                "options": {
+                    "Home": 83.9,
+                    "Away": 7.5,
+                    "None": 8.6
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "55.7%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 91.1
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 70.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 55.7
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 76.8
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "OVER 1.5",
+                "confidence": "65.7%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 89.5
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 65.7
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 60.9
+                    }
+                ],
+                "label": "Wolverhampton Wanderers O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "98.2%",
+                "all_thresholds": [
+                    {
+                        "pick": "UNDER",
+                        "label": "U0.5",
+                        "confidence": 81.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 98.2
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 99.9
+                    }
+                ],
+                "label": "FC Famalicao O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "58.4%",
+                "options": {
+                    "1/1": 58.4,
+                    "X/1": 24.0,
+                    "X/X": 10.8,
+                    "X/2": 1.2
+                }
+            },
+            "handicap": {
+                "prediction": "1 (-1)",
+                "confidence": "60.3%",
+                "options": {
+                    "1 (-1)": 60.3,
+                    "X (-1)": 24.1,
+                    "2 (-1)": 15.3
+                }
+            },
+            "1x2_h1": {
+                "prediction": "HOME WIN",
+                "confidence": "60.4%",
+                "options": {
+                    "1": 60.4,
+                    "X": 36.3,
+                    "2": 3.3
+                }
+            },
+            "1x2_h2": {
+                "prediction": "HOME WIN",
+                "confidence": "66.9%",
+                "options": {
+                    "1": 66.9,
+                    "X": 29.6,
+                    "2": 3.2
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "69.8%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.7
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 69.8
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.0
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "61.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.8
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 61.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 84.6
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "2 - 0",
+                "prob": 21.843064082653157
+            },
+            {
+                "score": "1 - 0",
+                "prob": 19.416056962358365
+            },
+            {
+                "score": "3 - 0",
+                "prob": 16.382298061989868
+            },
+            {
+                "score": "4 - 0",
+                "prob": 9.215042659869303
+            },
+            {
+                "score": "0 - 0",
+                "prob": 8.629358649937052
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 2.25,
+            "away_xg": 0.2
+        },
+        "score": 6.0,
+        "draw_signals": 0
+    },
+    "Chengdu Rongcheng_vs_Shenzhen Peng City": {
+        "status": "success",
+        "home": "Chengdu Rongcheng",
+        "away": "Shenzhen Peng City",
+        "overall_confidence": "HIGH",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "91.3%",
+                "options": {
+                    "1": 91.3,
+                    "X": 6.1,
+                    "2": 1.0
+                }
+            },
+            "boosted": {
+                "prediction": "HOME WIN",
+                "confidence": "96.3%"
+            },
+            "double_chance": {
+                "prediction": "1X DC",
+                "confidence": "97.4%",
+                "options": {
+                    "1X": 97.4,
+                    "X2": 7.1,
+                    "12": 92.4
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "82.9%",
+                "options": {
+                    "YES": 17.1,
+                    "NO": 82.9
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "90.7%",
+                "options": {
+                    "Home": 90.7,
+                    "Away": 5.8,
+                    "None": 3.5
+                }
+            },
+            "ou_ft": {
+                "prediction": "OVER 2.5",
+                "confidence": "63.5%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 94.9
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 83.2
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O2.5",
+                        "confidence": 63.5
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 56.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "OVER 1.5",
+                "confidence": "82.2%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 95.7
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 82.2
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O2.5",
+                        "confidence": 61.0
+                    }
+                ],
+                "label": "Chengdu Rongcheng O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "98.2%",
+                "all_thresholds": [
+                    {
+                        "pick": "UNDER",
+                        "label": "U0.5",
+                        "confidence": 81.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 98.2
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 99.9
+                    }
+                ],
+                "label": "Shenzhen Peng City O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "68.3%",
+                "options": {
+                    "1/1": 68.3,
+                    "X/1": 19.0,
+                    "X/X": 4.8,
+                    "2/1": 1.0
+                }
+            },
+            "handicap": {
+                "prediction": "1 (-1)",
+                "confidence": "76.4%",
+                "options": {
+                    "1 (-1)": 76.4,
+                    "X (-1)": 14.9,
+                    "2 (-1)": 7.1
+                }
+            },
+            "1x2_h1": {
+                "prediction": "HOME WIN",
+                "confidence": "72.4%",
+                "options": {
+                    "1": 72.4,
+                    "X": 25.1,
+                    "2": 2.2
+                }
+            },
+            "1x2_h2": {
+                "prediction": "HOME WIN",
+                "confidence": "78.1%",
+                "options": {
+                    "1": 78.1,
+                    "X": 19.0,
+                    "2": 2.0
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "55.5%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 77.5
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 55.5
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 80.7
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "OVER 1.5",
+                "confidence": "54.1%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 83.3
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 54.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 71.9
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "3 - 0",
+                "prob": 18.276536437195826
+            },
+            {
+                "score": "2 - 0",
+                "prob": 17.406225178281737
+            },
+            {
+                "score": "4 - 0",
+                "prob": 14.392772444291712
+            },
+            {
+                "score": "1 - 0",
+                "prob": 11.05157154176618
+            },
+            {
+                "score": "5 - 0",
+                "prob": 9.06744663990378
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 3.15,
+            "away_xg": 0.2
+        },
+        "score": 18.0,
+        "draw_signals": 1
+    },
+    "Schalke 04_vs_Arminia Bielefeld": {
+        "status": "success",
+        "home": "Schalke 04",
+        "away": "Arminia Bielefeld",
+        "overall_confidence": "LOW",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "43.6%",
+                "options": {
+                    "1": 43.6,
+                    "X": 27.3,
+                    "2": 29.1
+                }
+            },
+            "boosted": {
+                "prediction": "OVER 1.5",
+                "confidence": "69.1%"
+            },
+            "double_chance": {
+                "prediction": "12 DC",
+                "confidence": "72.7%",
+                "options": {
+                    "1X": 70.9,
+                    "X2": 56.4,
+                    "12": 72.7
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "51.9%",
+                "options": {
+                    "YES": 48.1,
+                    "NO": 51.9
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "51.1%",
+                "options": {
+                    "Home": 51.1,
+                    "Away": 39.8,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.9
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "UNDER 1.5",
+                "confidence": "60.9%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 74.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 60.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 84.5
+                    }
+                ],
+                "label": "Schalke 04 O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "71.7%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 65.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 71.7
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 91.0
+                    }
+                ],
+                "label": "Arminia Bielefeld O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "25.7%",
+                "options": {
+                    "1/1": 25.7,
+                    "X/X": 17.5,
+                    "2/2": 16.3,
+                    "X/1": 15.7
+                }
+            },
+            "handicap": {
+                "prediction": "2 (-1)",
+                "confidence": "56.4%",
+                "options": {
+                    "1 (-1)": 20.4,
+                    "X (-1)": 23.2,
+                    "2 (-1)": 56.4
+                }
+            },
+            "1x2_h1": {
+                "prediction": "DRAW",
+                "confidence": "44.4%",
+                "options": {
+                    "1": 32.2,
+                    "X": 44.4,
+                    "2": 23.4
+                }
+            },
+            "1x2_h2": {
+                "prediction": "DRAW",
+                "confidence": "39.5%",
+                "options": {
+                    "1": 35.3,
+                    "X": 39.5,
+                    "2": 25.2
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 1",
+                "prob": 12.859269878774224
+            },
+            {
+                "score": "1 - 0",
+                "prob": 12.246923694070688
+            },
+            {
+                "score": "0 - 1",
+                "prob": 9.525385095388312
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "2 - 1",
+                "prob": 8.680007168172601
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.35,
+            "away_xg": 1.05
+        },
+        "score": 0.0,
+        "draw_signals": 1
+    },
+    "Heracles Almelo_vs_FC Utrecht": {
+        "status": "success",
+        "home": "Heracles Almelo",
+        "away": "FC Utrecht",
+        "overall_confidence": "HIGH",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "73.4%",
+                "options": {
+                    "1": 73.4,
+                    "X": 19.0,
+                    "2": 7.6
+                }
+            },
+            "boosted": {
+                "prediction": "HOME WIN",
+                "confidence": "78.4%"
+            },
+            "double_chance": {
+                "prediction": "1X DC",
+                "confidence": "92.3%",
+                "options": {
+                    "1X": 92.3,
+                    "X2": 26.5,
+                    "12": 80.9
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "69.0%",
+                "options": {
+                    "YES": 31.0,
+                    "NO": 69.0
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "73.9%",
+                "options": {
+                    "Home": 73.9,
+                    "Away": 17.0,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "OVER 1.5",
+                "confidence": "58.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 85.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 58.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 69.0
+                    }
+                ],
+                "label": "Heracles Almelo O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "92.5%",
+                "all_thresholds": [
+                    {
+                        "pick": "UNDER",
+                        "label": "U0.5",
+                        "confidence": 63.8
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 92.5
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 98.9
+                    }
+                ],
+                "label": "FC Utrecht O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "48.1%",
+                "options": {
+                    "1/1": 48.1,
+                    "X/1": 22.8,
+                    "X/X": 13.8,
+                    "2/2": 3.8
+                }
+            },
+            "handicap": {
+                "prediction": "1 (-1)",
+                "confidence": "46.7%",
+                "options": {
+                    "1 (-1)": 46.7,
+                    "X (-1)": 26.7,
+                    "2 (-1)": 26.5
+                }
+            },
+            "1x2_h1": {
+                "prediction": "HOME WIN",
+                "confidence": "51.4%",
+                "options": {
+                    "1": 51.4,
+                    "X": 40.3,
+                    "2": 8.3
+                }
+            },
+            "1x2_h2": {
+                "prediction": "HOME WIN",
+                "confidence": "57.1%",
+                "options": {
+                    "1": 57.1,
+                    "X": 34.3,
+                    "2": 8.5
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.2
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 0",
+                "prob": 17.690000891435435
+            },
+            {
+                "score": "2 - 0",
+                "prob": 17.24775086914955
+            },
+            {
+                "score": "3 - 0",
+                "prob": 11.21103806494721
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "1 - 1",
+                "prob": 7.9605004011459455
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.95,
+            "away_xg": 0.45
+        },
+        "score": 6.0,
+        "draw_signals": 1
+    },
+    "AEK Larnaca_vs_Akritas Chlorakas": {
+        "status": "success",
+        "home": "AEK Larnaca",
+        "away": "Akritas Chlorakas",
+        "overall_confidence": "LOW",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "43.6%",
+                "options": {
+                    "1": 43.6,
+                    "X": 27.3,
+                    "2": 29.1
+                }
+            },
+            "boosted": {
+                "prediction": "OVER 1.5",
+                "confidence": "69.1%"
+            },
+            "double_chance": {
+                "prediction": "12 DC",
+                "confidence": "72.7%",
+                "options": {
+                    "1X": 70.9,
+                    "X2": 56.4,
+                    "12": 72.7
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "51.9%",
+                "options": {
+                    "YES": 48.1,
+                    "NO": 51.9
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "51.1%",
+                "options": {
+                    "Home": 51.1,
+                    "Away": 39.8,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.9
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "UNDER 1.5",
+                "confidence": "60.9%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 74.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 60.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 84.5
+                    }
+                ],
+                "label": "AEK Larnaca O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "71.7%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 65.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 71.7
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 91.0
+                    }
+                ],
+                "label": "Akritas Chlorakas O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "25.7%",
+                "options": {
+                    "1/1": 25.7,
+                    "X/X": 17.5,
+                    "2/2": 16.3,
+                    "X/1": 15.7
+                }
+            },
+            "handicap": {
+                "prediction": "2 (-1)",
+                "confidence": "56.4%",
+                "options": {
+                    "1 (-1)": 20.4,
+                    "X (-1)": 23.2,
+                    "2 (-1)": 56.4
+                }
+            },
+            "1x2_h1": {
+                "prediction": "DRAW",
+                "confidence": "44.4%",
+                "options": {
+                    "1": 32.2,
+                    "X": 44.4,
+                    "2": 23.4
+                }
+            },
+            "1x2_h2": {
+                "prediction": "DRAW",
+                "confidence": "39.5%",
+                "options": {
+                    "1": 35.3,
+                    "X": 39.5,
+                    "2": 25.2
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 1",
+                "prob": 12.859269878774224
+            },
+            {
+                "score": "1 - 0",
+                "prob": 12.246923694070688
+            },
+            {
+                "score": "0 - 1",
+                "prob": 9.525385095388312
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "2 - 1",
+                "prob": 8.680007168172601
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.35,
+            "away_xg": 1.05
+        },
+        "score": 0.0,
+        "draw_signals": 1
+    },
+    "Al Hilal SFC_vs_Al-Najma": {
+        "status": "success",
+        "home": "Al Hilal SFC",
+        "away": "Al-Najma",
+        "overall_confidence": "LOW",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "DRAW",
+                "confidence": "27.7%",
+                "options": {
+                    "1": 36.2,
+                    "X": 27.7,
+                    "2": 36.2
+                }
+            },
+            "boosted": {
+                "prediction": "OVER 1.5",
+                "confidence": "69.1%"
+            },
+            "double_chance": {
+                "prediction": "12 DC",
+                "confidence": "72.3%",
+                "options": {
+                    "1X": 63.8,
+                    "X2": 63.8,
+                    "12": 72.3
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "51.2%",
+                "options": {
+                    "YES": 48.8,
+                    "NO": 51.2
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "45.5%",
+                "options": {
+                    "Home": 45.5,
+                    "Away": 45.5,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.9
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "UNDER 1.5",
+                "confidence": "66.3%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 69.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 66.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 87.9
+                    }
+                ],
+                "label": "Al Hilal SFC O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "66.3%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 69.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 66.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 87.9
+                    }
+                ],
+                "label": "Al-Najma O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "20.8%",
+                "options": {
+                    "1/1": 20.8,
+                    "2/2": 20.8,
+                    "X/X": 17.7,
+                    "X/1": 13.4
+                }
+            },
+            "handicap": {
+                "prediction": "2 (-1)",
+                "confidence": "63.8%",
+                "options": {
+                    "1 (-1)": 15.3,
+                    "X (-1)": 20.8,
+                    "2 (-1)": 63.8
+                }
+            },
+            "1x2_h1": {
+                "prediction": "DRAW",
+                "confidence": "44.6%",
+                "options": {
+                    "1": 27.7,
+                    "X": 44.6,
+                    "2": 27.7
+                }
+            },
+            "1x2_h2": {
+                "prediction": "DRAW",
+                "confidence": "39.7%",
+                "options": {
+                    "1": 30.2,
+                    "X": 39.7,
+                    "2": 30.2
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 1",
+                "prob": 13.063385273675399
+            },
+            {
+                "score": "0 - 1",
+                "prob": 10.886154394729497
+            },
+            {
+                "score": "1 - 0",
+                "prob": 10.886154394729497
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.071795328941246
+            },
+            {
+                "score": "1 - 2",
+                "prob": 7.8380311642052405
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.2,
+            "away_xg": 1.2
+        },
+        "score": 1.5,
+        "draw_signals": 1
+    },
+    "Al-Khaleej Club_vs_Al-Hazm": {
+        "status": "success",
+        "home": "Al-Khaleej Club",
+        "away": "Al-Hazm",
+        "overall_confidence": "LOW",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "DRAW",
+                "confidence": "27.7%",
+                "options": {
+                    "1": 36.2,
+                    "X": 27.7,
+                    "2": 36.2
+                }
+            },
+            "boosted": {
+                "prediction": "OVER 1.5",
+                "confidence": "69.1%"
+            },
+            "double_chance": {
+                "prediction": "12 DC",
+                "confidence": "72.3%",
+                "options": {
+                    "1X": 63.8,
+                    "X2": 63.8,
+                    "12": 72.3
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "51.2%",
+                "options": {
+                    "YES": 48.8,
+                    "NO": 51.2
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "45.5%",
+                "options": {
+                    "Home": 45.5,
+                    "Away": 45.5,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.9
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "UNDER 1.5",
+                "confidence": "66.3%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 69.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 66.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 87.9
+                    }
+                ],
+                "label": "Al-Khaleej Club O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "66.3%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 69.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 66.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 87.9
+                    }
+                ],
+                "label": "Al-Hazm O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "20.8%",
+                "options": {
+                    "1/1": 20.8,
+                    "2/2": 20.8,
+                    "X/X": 17.7,
+                    "X/1": 13.4
+                }
+            },
+            "handicap": {
+                "prediction": "2 (-1)",
+                "confidence": "63.8%",
+                "options": {
+                    "1 (-1)": 15.3,
+                    "X (-1)": 20.8,
+                    "2 (-1)": 63.8
+                }
+            },
+            "1x2_h1": {
+                "prediction": "DRAW",
+                "confidence": "44.6%",
+                "options": {
+                    "1": 27.7,
+                    "X": 44.6,
+                    "2": 27.7
+                }
+            },
+            "1x2_h2": {
+                "prediction": "DRAW",
+                "confidence": "39.7%",
+                "options": {
+                    "1": 30.2,
+                    "X": 39.7,
+                    "2": 30.2
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 1",
+                "prob": 13.063385273675399
+            },
+            {
+                "score": "0 - 1",
+                "prob": 10.886154394729497
+            },
+            {
+                "score": "1 - 0",
+                "prob": 10.886154394729497
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.071795328941246
+            },
+            {
+                "score": "1 - 2",
+                "prob": 7.8380311642052405
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.2,
+            "away_xg": 1.2
+        },
+        "score": 1.5,
+        "draw_signals": 1
+    },
+    "Al-Taawoun FC_vs_Al-Fateh SC": {
+        "status": "success",
+        "home": "Al-Taawoun FC",
+        "away": "Al-Fateh SC",
+        "overall_confidence": "HIGH",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "AWAY WIN",
+                "confidence": "79.9%",
+                "options": {
+                    "1": 4.2,
+                    "X": 15.8,
+                    "2": 79.9
+                }
+            },
+            "boosted": {
+                "prediction": "AWAY WIN",
+                "confidence": "84.9%"
+            },
+            "double_chance": {
+                "prediction": "X2 DC",
+                "confidence": "95.6%",
+                "options": {
+                    "1X": 20.0,
+                    "X2": 95.6,
+                    "12": 84.1
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "77.3%",
+                "options": {
+                    "YES": 22.7,
+                    "NO": 77.3
+                }
+            },
+            "next_goal": {
+                "prediction": "Away",
+                "confidence": "79.6%",
+                "options": {
+                    "Home": 11.4,
+                    "Away": 79.6,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "UNDER 1.5",
+                "confidence": "96.3%",
+                "all_thresholds": [
+                    {
+                        "pick": "UNDER",
+                        "label": "U0.5",
+                        "confidence": 74.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 96.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 99.6
+                    }
+                ],
+                "label": "Al-Taawoun FC O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "OVER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 87.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 65.0
+                    }
+                ],
+                "label": "Al-Fateh SC O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "2/2",
+                "confidence": "53.8%",
+                "options": {
+                    "2/2": 53.8,
+                    "X/2": 23.8,
+                    "X/X": 12.3,
+                    "1/1": 2.1
+                }
+            },
+            "handicap": {
+                "prediction": "2 (-1)",
+                "confidence": "95.6%",
+                "options": {
+                    "1 (-1)": 0.6,
+                    "X (-1)": 3.7,
+                    "2 (-1)": 95.6
+                }
+            },
+            "1x2_h1": {
+                "prediction": "AWAY WIN",
+                "confidence": "56.3%",
+                "options": {
+                    "1": 5.2,
+                    "X": 38.4,
+                    "2": 56.3
+                }
+            },
+            "1x2_h2": {
+                "prediction": "AWAY WIN",
+                "confidence": "62.6%",
+                "options": {
+                    "1": 5.3,
+                    "X": 32.1,
+                    "2": 62.6
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.2
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "0 - 2",
+                "prob": 20.003308700315458
+            },
+            {
+                "score": "0 - 1",
+                "prob": 19.050770190776625
+            },
+            {
+                "score": "0 - 3",
+                "prob": 14.002316090220823
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "0 - 4",
+                "prob": 7.351215947365931
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 0.3,
+            "away_xg": 2.1
+        },
+        "score": 10.5,
+        "draw_signals": 1
+    },
+    "Al Ahli Saudi FC_vs_Al-Ittihad Club": {
+        "status": "success",
+        "home": "Al Ahli Saudi FC",
+        "away": "Al-Ittihad Club",
+        "overall_confidence": "HIGH",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "73.4%",
+                "options": {
+                    "1": 73.4,
+                    "X": 19.0,
+                    "2": 7.6
+                }
+            },
+            "boosted": {
+                "prediction": "HOME WIN",
+                "confidence": "78.4%"
+            },
+            "double_chance": {
+                "prediction": "1X DC",
+                "confidence": "92.3%",
+                "options": {
+                    "1X": 92.3,
+                    "X2": 26.5,
+                    "12": 80.9
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "69.0%",
+                "options": {
+                    "YES": 31.0,
+                    "NO": 69.0
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "73.9%",
+                "options": {
+                    "Home": 73.9,
+                    "Away": 17.0,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "OVER 1.5",
+                "confidence": "58.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 85.8
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 58.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 69.0
+                    }
+                ],
+                "label": "Al Ahli Saudi FC O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "92.5%",
+                "all_thresholds": [
+                    {
+                        "pick": "UNDER",
+                        "label": "U0.5",
+                        "confidence": 63.8
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 92.5
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 98.9
+                    }
+                ],
+                "label": "Al-Ittihad Club O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "48.1%",
+                "options": {
+                    "1/1": 48.1,
+                    "X/1": 22.8,
+                    "X/X": 13.8,
+                    "2/2": 3.8
+                }
+            },
+            "handicap": {
+                "prediction": "1 (-1)",
+                "confidence": "46.7%",
+                "options": {
+                    "1 (-1)": 46.7,
+                    "X (-1)": 26.7,
+                    "2 (-1)": 26.5
+                }
+            },
+            "1x2_h1": {
+                "prediction": "HOME WIN",
+                "confidence": "51.4%",
+                "options": {
+                    "1": 51.4,
+                    "X": 40.3,
+                    "2": 8.3
+                }
+            },
+            "1x2_h2": {
+                "prediction": "HOME WIN",
+                "confidence": "57.1%",
+                "options": {
+                    "1": 57.1,
+                    "X": 34.3,
+                    "2": 8.5
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.2
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 0",
+                "prob": 17.690000891435435
+            },
+            {
+                "score": "2 - 0",
+                "prob": 17.24775086914955
+            },
+            {
+                "score": "3 - 0",
+                "prob": 11.21103806494721
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "1 - 1",
+                "prob": 7.9605004011459455
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.95,
+            "away_xg": 0.45
+        },
+        "score": 6.0,
+        "draw_signals": 1
+    },
+    "Zamalek SC_vs_Al Ittihad Al Sakandary": {
+        "status": "success",
+        "home": "Zamalek SC",
+        "away": "Al Ittihad Al Sakandary",
+        "overall_confidence": "LOW",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "43.6%",
+                "options": {
+                    "1": 43.6,
+                    "X": 27.3,
+                    "2": 29.1
+                }
+            },
+            "boosted": {
+                "prediction": "OVER 1.5",
+                "confidence": "69.1%"
+            },
+            "double_chance": {
+                "prediction": "12 DC",
+                "confidence": "72.7%",
+                "options": {
+                    "1X": 70.9,
+                    "X2": 56.4,
+                    "12": 72.7
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "51.9%",
+                "options": {
+                    "YES": 48.1,
+                    "NO": 51.9
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "51.1%",
+                "options": {
+                    "Home": 51.1,
+                    "Away": 39.8,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.9
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "UNDER 1.5",
+                "confidence": "60.9%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 74.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 60.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 84.5
+                    }
+                ],
+                "label": "Zamalek SC O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "71.7%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 65.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 71.7
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 91.0
+                    }
+                ],
+                "label": "Al Ittihad Al Sakandary O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "25.7%",
+                "options": {
+                    "1/1": 25.7,
+                    "X/X": 17.5,
+                    "2/2": 16.3,
+                    "X/1": 15.7
+                }
+            },
+            "handicap": {
+                "prediction": "2 (-1)",
+                "confidence": "56.4%",
+                "options": {
+                    "1 (-1)": 20.4,
+                    "X (-1)": 23.2,
+                    "2 (-1)": 56.4
+                }
+            },
+            "1x2_h1": {
+                "prediction": "DRAW",
+                "confidence": "44.4%",
+                "options": {
+                    "1": 32.2,
+                    "X": 44.4,
+                    "2": 23.4
+                }
+            },
+            "1x2_h2": {
+                "prediction": "DRAW",
+                "confidence": "39.5%",
+                "options": {
+                    "1": 35.3,
+                    "X": 39.5,
+                    "2": 25.2
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 1",
+                "prob": 12.859269878774224
+            },
+            {
+                "score": "1 - 0",
+                "prob": 12.246923694070688
+            },
+            {
+                "score": "0 - 1",
+                "prob": 9.525385095388312
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "2 - 1",
+                "prob": 8.680007168172601
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.35,
+            "away_xg": 1.05
+        },
+        "score": 0.0,
+        "draw_signals": 1
+    },
+    "Al Masry Club_vs_Ismaily SC": {
+        "status": "success",
+        "home": "Al Masry Club",
+        "away": "Ismaily SC",
+        "overall_confidence": "LOW",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "43.6%",
+                "options": {
+                    "1": 43.6,
+                    "X": 27.3,
+                    "2": 29.1
+                }
+            },
+            "boosted": {
+                "prediction": "OVER 1.5",
+                "confidence": "69.1%"
+            },
+            "double_chance": {
+                "prediction": "12 DC",
+                "confidence": "72.7%",
+                "options": {
+                    "1X": 70.9,
+                    "X2": 56.4,
+                    "12": 72.7
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "51.9%",
+                "options": {
+                    "YES": 48.1,
+                    "NO": 51.9
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "51.1%",
+                "options": {
+                    "Home": 51.1,
+                    "Away": 39.8,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.9
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "UNDER 1.5",
+                "confidence": "60.9%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 74.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 60.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 84.5
+                    }
+                ],
+                "label": "Al Masry Club O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "71.7%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 65.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 71.7
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 91.0
+                    }
+                ],
+                "label": "Ismaily SC O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "25.7%",
+                "options": {
+                    "1/1": 25.7,
+                    "X/X": 17.5,
+                    "2/2": 16.3,
+                    "X/1": 15.7
+                }
+            },
+            "handicap": {
+                "prediction": "2 (-1)",
+                "confidence": "56.4%",
+                "options": {
+                    "1 (-1)": 20.4,
+                    "X (-1)": 23.2,
+                    "2 (-1)": 56.4
+                }
+            },
+            "1x2_h1": {
+                "prediction": "DRAW",
+                "confidence": "44.4%",
+                "options": {
+                    "1": 32.2,
+                    "X": 44.4,
+                    "2": 23.4
+                }
+            },
+            "1x2_h2": {
+                "prediction": "DRAW",
+                "confidence": "39.5%",
+                "options": {
+                    "1": 35.3,
+                    "X": 39.5,
+                    "2": 25.2
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 1",
+                "prob": 12.859269878774224
+            },
+            {
+                "score": "1 - 0",
+                "prob": 12.246923694070688
+            },
+            {
+                "score": "0 - 1",
+                "prob": 9.525385095388312
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "2 - 1",
+                "prob": 8.680007168172601
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.35,
+            "away_xg": 1.05
+        },
+        "score": 0.0,
+        "draw_signals": 1
+    },
+    "FC Arouca_vs_Mansfield Town": {
+        "status": "success",
+        "home": "FC Arouca",
+        "away": "Mansfield Town",
+        "overall_confidence": "LOW",
+        "markets": {
+            "1x2_ft": {
+                "prediction": "HOME WIN",
+                "confidence": "43.6%",
+                "options": {
+                    "1": 43.6,
+                    "X": 27.3,
+                    "2": 29.1
+                }
+            },
+            "boosted": {
+                "prediction": "OVER 1.5",
+                "confidence": "69.1%"
+            },
+            "double_chance": {
+                "prediction": "12 DC",
+                "confidence": "72.7%",
+                "options": {
+                    "1X": 70.9,
+                    "X2": 56.4,
+                    "12": 72.7
+                }
+            },
+            "btts": {
+                "prediction": "NO",
+                "confidence": "51.9%",
+                "options": {
+                    "YES": 48.1,
+                    "NO": 51.9
+                }
+            },
+            "next_goal": {
+                "prediction": "Home",
+                "confidence": "51.1%",
+                "options": {
+                    "Home": 51.1,
+                    "Away": 39.8,
+                    "None": 9.1
+                }
+            },
+            "ou_ft": {
+                "prediction": "UNDER 2.5",
+                "confidence": "57.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 90.9
+                    },
+                    {
+                        "pick": "OVER",
+                        "label": "O1.5",
+                        "confidence": 69.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 57.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U3.5",
+                        "confidence": 77.9
+                    }
+                ]
+            },
+            "ou_home": {
+                "prediction": "UNDER 1.5",
+                "confidence": "60.9%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 74.1
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 60.9
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 84.5
+                    }
+                ],
+                "label": "FC Arouca O/U | FT"
+            },
+            "ou_away": {
+                "prediction": "UNDER 1.5",
+                "confidence": "71.7%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 65.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 71.7
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 91.0
+                    }
+                ],
+                "label": "Mansfield Town O/U | FT"
+            },
+            "ht_ft": {
+                "prediction": "1/1",
+                "confidence": "25.7%",
+                "options": {
+                    "1/1": 25.7,
+                    "X/X": 17.5,
+                    "2/2": 16.3,
+                    "X/1": 15.7
+                }
+            },
+            "handicap": {
+                "prediction": "2 (-1)",
+                "confidence": "56.4%",
+                "options": {
+                    "1 (-1)": 20.4,
+                    "X (-1)": 23.2,
+                    "2 (-1)": 56.4
+                }
+            },
+            "1x2_h1": {
+                "prediction": "DRAW",
+                "confidence": "44.4%",
+                "options": {
+                    "1": 32.2,
+                    "X": 44.4,
+                    "2": 23.4
+                }
+            },
+            "1x2_h2": {
+                "prediction": "DRAW",
+                "confidence": "39.5%",
+                "options": {
+                    "1": 35.3,
+                    "X": 39.5,
+                    "2": 25.2
+                }
+            },
+            "ou_h1": {
+                "prediction": "UNDER 1.5",
+                "confidence": "70.6%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 66.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 70.6
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 90.4
+                    }
+                ]
+            },
+            "ou_h2": {
+                "prediction": "UNDER 1.5",
+                "confidence": "62.0%",
+                "all_thresholds": [
+                    {
+                        "pick": "OVER",
+                        "label": "O0.5",
+                        "confidence": 73.3
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U1.5",
+                        "confidence": 62.0
+                    },
+                    {
+                        "pick": "UNDER",
+                        "label": "U2.5",
+                        "confidence": 85.2
+                    }
+                ]
+            }
+        },
+        "correct_scores": [
+            {
+                "score": "1 - 1",
+                "prob": 12.859269878774224
+            },
+            {
+                "score": "1 - 0",
+                "prob": 12.246923694070688
+            },
+            {
+                "score": "0 - 1",
+                "prob": 9.525385095388312
+            },
+            {
+                "score": "0 - 0",
+                "prob": 9.07179532894125
+            },
+            {
+                "score": "2 - 1",
+                "prob": 8.680007168172601
+            }
+        ],
+        "analysis_meta": {
+            "home_xg": 1.35,
+            "away_xg": 1.05
+        },
+        "score": 0.0,
+        "draw_signals": 1
+    }
+}

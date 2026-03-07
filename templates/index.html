@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BetPawa AI Engine | 14 Markets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  
+  <div class="app-layout">
+    
+    <!-- ─── SIDEBAR: MATCHES ─── -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">⚡</div>
+          <div class="logo-text">
+            <span>BetPawa TZ</span>
+            <small>AI PREDICTION ENGINE</small>
+          </div>
+        </div>
+        <div class="search-box">
+          <input type="text" id="match-search" placeholder="Search fixtures...">
+          <span class="search-icon">🔍</span>
+        </div>
+      </div>
+
+      <div class="sidebar-content">
+        <div id="sidebar-loading" class="sidebar-msg">
+          <div class="spinner"></div>
+          <p>Fetching today's fixtures...</p>
+        </div>
+        <div id="sidebar-error" class="sidebar-msg hidden">
+          <p>Failed to load matches.</p>
+          <button id="retry-btn" class="btn-small">Retry</button>
+        </div>
+        <div id="matches-list" class="match-list hidden">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- ─── MAIN CONTENT ─── -->
+    <main class="main-content">
+      
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">🏟️</div>
+        <h2>Select a Match</h2>
+        <p>Choose a fixture from the sidebar to generate 14-market AI predictions.</p>
+      </div>
+
+      <div id="analyzing-state" class="empty-state hidden">
+        <div class="radar-spinner"></div>
+        <h2>Analyzing Data...</h2>
+        <p>Scraping web data, assessing form, and generating Poisson matrix.</p>
+      </div>
+
+      <div id="prediction-view" class="prediction-view hidden">
+        <!-- Match Hero Header -->
+        <header class="match-hero">
+          <div class="team-block">
+            <div class="team-avatar" id="p-home-avatar">H</div>
+            <h2 id="p-home">Home Team</h2>
+          </div>
+          <div class="vs-block">
+            <div class="vs-badge">VS</div>
+            <div class="date-badge" id="last-updated">Today</div>
+          </div>
+          <div class="team-block">
+            <div class="team-avatar" id="p-away-avatar">A</div>
+            <h2 id="p-away">Away Team</h2>
+          </div>
+        </header>
+
+        <!-- Overall Confidence & xG -->
+        <div class="dashboard-header">
+          <div class="conf-wrap">
+            <span class="conf-label">Engine Confidence</span>
+            <div id="p-confidence-badge" class="conf-badge">CALCULATING</div>
+          </div>
+          
+          <div class="xg-wrap">
+            <div class="xg-labels">
+              <span id="xg-home-label">xG 1.00</span>
+              <span id="xg-away-label">xG 1.00</span>
+            </div>
+            <div class="xg-bar-container">
+              <div id="xg-bar-home" class="xg-bar home"></div>
+              <div id="xg-bar-away" class="xg-bar away"></div>
+            </div>
+            <div class="xg-title">Expected Goals (Poisson Mean)</div>
+          </div>
+        </div>
+
+        <div id="result-container" class="hidden">
+          
+          <!-- Tab Navigation -->
+          <nav class="tabs">
+            <button class="tab-btn active" data-tab="ft">Full Time</button>
+            <button class="tab-btn" data-tab="half">Halves</button>
+            <button class="tab-btn" data-tab="special">Specials</button>
+          </nav>
+          
+          <div class="tab-content">
+            
+            <!-- ─── TAB: FULL TIME ─── -->
+            <div id="tab-ft" class="tab-panel active">
+              <div class="card-grid">
+                
+                <!-- 1X2 FT -->
+                <div class="pred-card highlight">
+                  <div class="card-head">1X2 | Full Time <span class="conf-mini" id="conf-1x2-ft">--</span></div>
+                  <div class="pick-value" id="pick-1x2-ft">--</div>
+                  <div class="prob-bar-3">
+                    <div class="seg-1" id="seg-1x2-1">1<small>--</small></div>
+                    <div class="seg-x" id="seg-1x2-x">X<small>--</small></div>
+                    <div class="seg-2" id="seg-1x2-2">2<small>--</small></div>
+                  </div>
+                </div>
+
+                <!-- Over/Under FT -->
+                <div class="pred-card">
+                  <div class="card-head">Over/Under | FT <span class="conf-mini" id="conf-ou-ft">--</span></div>
+                  <div class="pick-value" id="pick-ou-ft">--</div>
+                  <div class="line-chips" id="lines-ou-ft"></div>
+                </div>
+
+                <!-- BTTS -->
+                <div class="pred-card">
+                  <div class="card-head">Both Teams To Score <span class="conf-mini" id="conf-btts">--</span></div>
+                  <div class="pick-value" id="pick-btts">--</div>
+                  <div class="mini-bar" id="bar-btts"></div>
+                </div>
+
+                <!-- Double Chance -->
+                <div class="pred-card">
+                  <div class="card-head">Double Chance <span class="conf-mini" id="conf-dc">--</span></div>
+                  <div class="pick-value" id="pick-dc">--</div>
+                  <div class="opts-grid" id="opts-dc"></div>
+                </div>
+
+                <!-- Handicap -->
+                <div class="pred-card">
+                  <div class="card-head">3-Way Handicap <span class="conf-mini" id="conf-hcp">--</span></div>
+                  <div class="pick-value" id="pick-hcp">--</div>
+                  <div class="opts-grid" id="opts-hcp"></div>
+                </div>
+
+                <!-- Correct Score Podium -->
+                <div class="pred-card span-full">
+                  <div class="card-head">Most Likely Exact Scores</div>
+                  <div class="scores-podium" id="scores-podium">
+                    <!-- JS Injects -->
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ─── TAB: HALVES ─── -->
+            <div id="tab-half" class="tab-panel">
+               <div class="card-grid">
+                
+                <!-- 1X2 H1 -->
+                <div class="pred-card">
+                  <div class="card-head">1X2 | 1st Half <span class="conf-mini" id="conf-1x2-h1">--</span></div>
+                  <div class="pick-value small" id="pick-1x2-h1">--</div>
+                  <div class="prob-bar-3 mini">
+                    <div class="seg-1" id="seg-h1-1">1<small>--</small></div>
+                    <div class="seg-x" id="seg-h1-x">X<small>--</small></div>
+                    <div class="seg-2" id="seg-h1-2">2<small>--</small></div>
+                  </div>
+                </div>
+
+                <!-- 1X2 H2 -->
+                <div class="pred-card">
+                  <div class="card-head">1X2 | 2nd Half <span class="conf-mini" id="conf-1x2-h2">--</span></div>
+                  <div class="pick-value small" id="pick-1x2-h2">--</div>
+                  <div class="prob-bar-3 mini">
+                    <div class="seg-1" id="seg-h2-1">1<small>--</small></div>
+                    <div class="seg-x" id="seg-h2-x">X<small>--</small></div>
+                    <div class="seg-2" id="seg-h2-2">2<small>--</small></div>
+                  </div>
+                </div>
+
+                <!-- O/U H1 -->
+                <div class="pred-card">
+                  <div class="card-head">Over/Under | 1st Half <span class="conf-mini" id="conf-ou-h1">--</span></div>
+                  <div class="pick-value small" id="pick-ou-h1">--</div>
+                  <div class="line-chips" id="lines-ou-h1"></div>
+                </div>
+
+                <!-- O/U H2 -->
+                <div class="pred-card">
+                  <div class="card-head">Over/Under | 2nd Half <span class="conf-mini" id="conf-ou-h2">--</span></div>
+                  <div class="pick-value small" id="pick-ou-h2">--</div>
+                  <div class="line-chips" id="lines-ou-h2"></div>
+                </div>
+
+               </div>
+            </div>
+
+            <!-- ─── TAB: SPECIALS ─── -->
+            <div id="tab-special" class="tab-panel">
+               <div class="card-grid">
+                 
+                 <!-- Boosted -->
+                 <div class="pred-card premium">
+                  <div class="card-head">Engine's Best Pick <span class="conf-mini" id="conf-boosted">--</span></div>
+                  <div class="pick-value large text-gold" id="pick-boosted">--</div>
+                 </div>
+
+                 <!-- HT/FT -->
+                 <div class="pred-card">
+                  <div class="card-head">Half Time / Full Time <span class="conf-mini" id="conf-htft">--</span></div>
+                  <div class="pick-value" id="pick-htft">--</div>
+                  <div class="opts-grid htft" id="opts-htft"></div>
+                 </div>
+
+                 <!-- Next Goal -->
+                 <div class="pred-card">
+                  <div class="card-head">Next Goal (1st) <span class="conf-mini" id="conf-ng">--</span></div>
+                  <div class="pick-value" id="pick-ng">--</div>
+                  <div class="opts-grid" id="opts-ng"></div>
+                 </div>
+
+                 <!-- O/U Home -->
+                 <div class="pred-card">
+                  <div class="card-head"><span id="label-ou-home">Home O/U</span> <span class="conf-mini" id="conf-ou-home">--</span></div>
+                  <div class="pick-value small" id="pick-ou-home">--</div>
+                  <div class="line-chips" id="lines-ou-home"></div>
+                 </div>
+
+                 <!-- O/U Away -->
+                 <div class="pred-card">
+                  <div class="card-head"><span id="label-ou-away">Away O/U</span> <span class="conf-mini" id="conf-ou-away">--</span></div>
+                  <div class="pick-value small" id="pick-ou-away">--</div>
+                  <div class="line-chips" id="lines-ou-away"></div>
+                 </div>
+
+               </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

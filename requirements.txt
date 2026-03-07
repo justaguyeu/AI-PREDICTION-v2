@@ -1,0 +1,8 @@
+flask
+requests
+beautifulsoup4
+selenium
+selenium-stealth
+webdriver-manager
+duckduckgo-search
+python-dotenv
