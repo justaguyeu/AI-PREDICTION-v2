@@ -6,3 +6,4 @@ selenium-stealth
 webdriver-manager
 duckduckgo-search
 python-dotenv
+gunicorn
