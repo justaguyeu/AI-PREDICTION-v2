@@ -1,20 +1,17 @@
 /* ══════════════════════════════════════════════════════════
-   BetPawa AI Predictor – Frontend Logic
-   All 14 BetPawa market predictions rendered dynamically.
+   BetPawa AI Predictor – Deep Analysis Frontend
    ══════════════════════════════════════════════════════════ */
 
-/* ─── State ─────────────────────────────────────────────── */
 let allMatches = [];
 let activeMatch = null;
 
-/* ─── DOM Refs ──────────────────────────────────────────── */
 const $ = id => document.getElementById(id);
 const $q = sel => document.querySelector(sel);
 
-/* ─── Boot ──────────────────────────────────────────────── */
 document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   loadMatches();
+  loadBestBets();
   initSearch();
   $("retry-btn").addEventListener("click", loadMatches);
   $("last-updated").textContent = "Updated: " + new Date().toLocaleTimeString();
@@ -32,6 +29,35 @@ function initTabs() {
   });
 }
 
+/* ─── Best Bets Panel ───────────────────────────────────── */
+async function loadBestBets() {
+  try {
+    const res = await fetch("/api/best-bets");
+    const data = await res.json();
+    const list = $("best-bets-list");
+    const bets = data.best_bets || [];
+
+    if (!bets.length) {
+      list.innerHTML = `<p class="bb-empty">No analysed matches yet. Click a fixture to generate predictions.</p>`;
+      return;
+    }
+
+    list.innerHTML = bets.map(b => `
+      <div class="bb-item">
+        <div class="bb-match">
+          ${esc(b.home)} vs ${esc(b.away)}
+          <small>${esc(b.market)}</small>
+        </div>
+        <div class="bb-pick">${esc(b.pick)}</div>
+        <div class="bb-conf">${esc(b.confidence)}</div>
+      </div>
+    `).join("");
+  } catch (err) {
+    const list = $("best-bets-list");
+    if (list) list.innerHTML = `<p class="bb-empty">Analyse a match to see best bets.</p>`;
+  }
+}
+
 /* ─── Match Loading ─────────────────────────────────────── */
 async function loadMatches() {
   $("sidebar-loading").classList.remove("hidden");
@@ -41,23 +67,20 @@ async function loadMatches() {
   try {
     const res = await fetch("/api/matches");
     const data = await res.json();
-
     if (!res.ok || data.error) throw new Error(data.error || "Server error");
 
     allMatches = data.matches || [];
     $("sidebar-loading").classList.add("hidden");
 
-    if (allMatches.length === 0) {
+    if (!allMatches.length) {
       $("sidebar-error").classList.remove("hidden");
       $("sidebar-error").querySelector("p").textContent = "No fixtures found for today.";
       return;
     }
-
     renderMatchList(allMatches);
     $("matches-list").classList.remove("hidden");
 
   } catch (err) {
-    console.error("Match load failed:", err);
     $("sidebar-loading").classList.add("hidden");
     $("sidebar-error").classList.remove("hidden");
   }
@@ -72,14 +95,14 @@ function renderMatchList(matches) {
     item.id = "match-item-" + i;
     item.innerHTML = `
       <div class="match-teams">${esc(m.home)} vs ${esc(m.away)}</div>
-      <div class="match-meta">Football · Click to predict</div>
+      <div class="match-meta">⚽ BetPawa TZ · Click to predict</div>
     `;
     item.addEventListener("click", () => selectMatch(m, item));
     list.appendChild(item);
   });
 }
 
-/* ─── Search ────────────────────────────────────────────── */
+/* ─── Search ─────────────────────────────────────────────── */
 function initSearch() {
   $("match-search").addEventListener("input", e => {
     const q = e.target.value.toLowerCase();
@@ -100,14 +123,16 @@ function selectMatch(match, itemEl) {
   $("prediction-view").classList.remove("hidden");
   $("analyzing-state").classList.remove("hidden");
   $("result-container").classList.add("hidden");
+  $("reasoning-card").classList.add("hidden");
 
-  // Update hero header immediately
   $("p-home").textContent = match.home;
   $("p-away").textContent = match.away;
   $("p-home-avatar").textContent = match.home[0];
   $("p-away-avatar").textContent = match.away[0];
   $("p-confidence-badge").textContent = "Analysing…";
   $("p-confidence-badge").className = "conf-badge PENDING";
+  $("best-bet-banner").classList.add("hidden");
+  $("data-source-badge").classList.add("hidden");
 
   performPrediction(match);
 }
@@ -121,23 +146,15 @@ async function performPrediction(match) {
       body: JSON.stringify({ home: match.home, away: match.away }),
     });
     const data = await res.json();
-
     $("analyzing-state").classList.add("hidden");
 
-    if (!res.ok || data.error) {
-      showError(data.error || "Prediction failed");
-      return;
-    }
-    if (data.status === "insufficient_data") {
-      showError("Not enough web data found for this match.");
-      return;
-    }
-
+    if (!res.ok || data.error) { showError(data.error || "Prediction failed"); return; }
     renderPrediction(data);
     $("result-container").classList.remove("hidden");
+    // Refresh best bets panel
+    loadBestBets();
 
   } catch (err) {
-    console.error("Prediction failed:", err);
     showError("Network error – check the server is running.");
   }
 }
@@ -152,41 +169,76 @@ function showError(msg) {
     </div>`;
 }
 
-/* ─── Rendering: all 14 markets ─────────────────────────── */
+/* ─── Main Render ────────────────────────────────────────── */
 function renderPrediction(data) {
-  const m = data.markets || {};
+  const m    = data.markets    || {};
   const conf = data.overall_confidence || "LOW";
-  const meta = data.analysis_meta || {};
+  const meta = data.analysis_meta      || {};
+  const ts   = data.team_stats         || {};
+  const bb   = data.best_bet           || {};
+  const reas = data.reasoning          || "";
 
-  // Overall confidence badge
+  // Confidence badge
   $("p-confidence-badge").textContent = conf + " Confidence";
-  $("p-confidence-badge").className = "conf-badge " + conf;
+  $("p-confidence-badge").className   = "conf-badge " + conf;
 
-  // ── xG Bar ────────────────────────────────────────────────
-  const xgH = meta.home_xg || 1.35;
-  const xgA = meta.away_xg || 1.05;
+  // Data source badge
+  const src = ts.data_source || meta.data_source || "";
+  if (src) {
+    const srcEl = $("data-source-badge");
+    const srcLabels = {
+      known_db:       "📊 Real Stats",
+      web_extracted:  "🌐 Web Stats",
+      league_average: "📐 League Avg",
+      nlp_fallback:   "🔍 NLP Only"
+    };
+    srcEl.textContent = srcLabels[src] || src;
+    srcEl.className = "data-source-badge " + src;
+    srcEl.classList.remove("hidden");
+  }
+
+  // Best Bet banner on hero
+  if (bb.pick && bb.confidence) {
+    const banner = $("best-bet-banner");
+    banner.textContent = `⭐ BEST BET: ${bb.pick} @ ${bb.confidence}`;
+    banner.classList.remove("hidden");
+  }
+
+  // xG Bar
+  const xgH = meta.home_xg || 1.48;
+  const xgA = meta.away_xg || 1.17;
   const xgTotal = xgH + xgA;
-  const xgHPct = (xgH / xgTotal * 100).toFixed(1);
-  const xgAPct = (xgA / xgTotal * 100).toFixed(1);
-  $("xg-home-label").textContent = "xG " + xgH.toFixed(2);
-  $("xg-away-label").textContent = "xG " + xgA.toFixed(2);
-  $("xg-bar-home").style.width = xgHPct + "%";
-  $("xg-bar-away").style.width = xgAPct + "%";
+  $("xg-home-label").textContent = `xG ${xgH.toFixed(2)}`;
+  $("xg-away-label").textContent = `xG ${xgA.toFixed(2)}`;
+  $("xg-bar-home").style.width = (xgH / xgTotal * 100).toFixed(1) + "%";
+  $("xg-bar-away").style.width = (xgA / xgTotal * 100).toFixed(1) + "%";
 
-  // ── 1X2 FT ────────────────────────────────────────────────
-  renderCard1x2(
-    m["1x2_ft"],
-    "pick-1x2-ft", "conf-1x2-ft",
-    "seg-1x2-1", "seg-1x2-x", "seg-1x2-2"
-  );
+  // Team Stats bars
+  if (ts.home_attack) {
+    const maxVal = 3.5; // max goals/game scale
+    $("stat-home-label").textContent = data.home || "Home";
+    $("stat-away-label").textContent = data.away || "Away";
+    $("stat-h-atk").style.width = Math.min((ts.home_attack / maxVal) * 100, 100) + "%";
+    $("stat-h-def").style.width = Math.min((ts.home_defense / maxVal) * 100, 100) + "%";
+    $("stat-a-atk").style.width = Math.min((ts.away_attack / maxVal) * 100, 100) + "%";
+    $("stat-a-def").style.width = Math.min((ts.away_defense / maxVal) * 100, 100) + "%";
+    $("stats-wrap").classList.remove("hidden");
+  }
 
-  // ── Boosted ───────────────────────────────────────────────
+  // AI Reasoning
+  if (reas) {
+    $("reasoning-text").textContent = reas;
+    $("reasoning-card").classList.remove("hidden");
+  }
+
+  // ── All 14 Markets ────────────────────────────────────────────────────────
+  renderCard1x2(m["1x2_ft"], "pick-1x2-ft", "conf-1x2-ft", "seg-1x2-1", "seg-1x2-x", "seg-1x2-2");
+
   if (m["boosted"]) {
     $("pick-boosted").textContent = m["boosted"].prediction || "--";
     $("conf-boosted").textContent = m["boosted"].confidence || "--";
   }
 
-  // ── Double Chance ─────────────────────────────────────────
   if (m["double_chance"]) {
     const dc = m["double_chance"];
     $("pick-dc").textContent = dc.prediction || "--";
@@ -194,65 +246,46 @@ function renderPrediction(data) {
     renderOptions("opts-dc", dc.options, dc.prediction);
   }
 
-  // ── BTTS ──────────────────────────────────────────────────
   if (m["btts"]) {
     const btts = m["btts"];
     const pickEl = $("pick-btts");
     pickEl.className = "pick-badge " + (btts.prediction || "");
     pickEl.textContent = btts.prediction || "--";
     $("conf-btts").textContent = btts.confidence || "--";
-    // Mini bar
-    const barEl = $("bar-btts");
     const yesPct = (btts.options && btts.options["YES"]) || 50;
-    barEl.innerHTML = `
+    $("bar-btts").innerHTML = `
       <div class="mini-seg-yes" style="width:${yesPct}%"></div>
-      <div class="mini-seg-no" style="width:${100 - yesPct}%"></div>`;
+      <div class="mini-seg-no"  style="width:${100 - yesPct}%"></div>`;
   }
 
-  // ── O/U FT ────────────────────────────────────────────────
   renderOU($("pick-ou-ft"), $("conf-ou-ft"), $("lines-ou-ft"), m["ou_ft"]);
 
-  // ── O/U Home ──────────────────────────────────────────────
   if (m["ou_home"]) {
     $("label-ou-home").textContent = m["ou_home"].label || "Home O/U | FT";
     renderOU($("pick-ou-home"), $("conf-ou-home"), $("lines-ou-home"), m["ou_home"]);
   }
-
-  // ── O/U Away ──────────────────────────────────────────────
   if (m["ou_away"]) {
     $("label-ou-away").textContent = m["ou_away"].label || "Away O/U | FT";
     renderOU($("pick-ou-away"), $("conf-ou-away"), $("lines-ou-away"), m["ou_away"]);
   }
 
-  // ── 1X2 H1 ────────────────────────────────────────────────
   renderCard1x2(m["1x2_h1"], "pick-1x2-h1", "conf-1x2-h1", "seg-h1-1", "seg-h1-x", "seg-h1-2");
-
-  // ── 1X2 H2 ────────────────────────────────────────────────
   renderCard1x2(m["1x2_h2"], "pick-1x2-h2", "conf-1x2-h2", "seg-h2-1", "seg-h2-x", "seg-h2-2");
-
-  // ── O/U H1 ────────────────────────────────────────────────
   renderOU($("pick-ou-h1"), $("conf-ou-h1"), $("lines-ou-h1"), m["ou_h1"]);
-
-  // ── O/U H2 ────────────────────────────────────────────────
   renderOU($("pick-ou-h2"), $("conf-ou-h2"), $("lines-ou-h2"), m["ou_h2"]);
 
-  // ── Next Goal ─────────────────────────────────────────────
   if (m["next_goal"]) {
     const ng = m["next_goal"];
     $("pick-ng").textContent = ng.prediction || "--";
     $("conf-ng").textContent = ng.confidence || "--";
     renderOptions("opts-ng", ng.options, ng.prediction);
   }
-
-  // ── HT/FT ─────────────────────────────────────────────────
   if (m["ht_ft"]) {
     const htft = m["ht_ft"];
     $("pick-htft").textContent = htft.prediction || "--";
     $("conf-htft").textContent = htft.confidence || "--";
     renderHTFT("opts-htft", htft.options, htft.prediction);
   }
-
-  // ── Handicap ──────────────────────────────────────────────
   if (m["handicap"]) {
     const hcp = m["handicap"];
     $("pick-hcp").textContent = hcp.prediction || "--";
@@ -260,7 +293,6 @@ function renderPrediction(data) {
     renderOptions("opts-hcp", hcp.options, hcp.prediction);
   }
 
-  // ── Correct Scores ────────────────────────────────────────
   renderScores(data.correct_scores || []);
 }
 
@@ -270,24 +302,19 @@ function renderCard1x2(market, pickId, confId, seg1Id, segXId, seg2Id) {
   $(pickId).textContent = market.prediction || "--";
   $(confId).textContent = market.confidence || "--";
   const opts = market.options || {};
-  const p1 = opts["1"] || 33, pX = opts["X"] || 33, p2 = opts["2"] || 34;
-
-  const seg1 = $(seg1Id);
-  const segX = $(segXId);
-  const seg2 = $(seg2Id);
-
-  if (seg1) { seg1.style.width = p1 + "%"; seg1.querySelector("small").textContent = p1 + "%"; }
-  if (segX) { segX.style.width = pX + "%"; segX.querySelector("small").textContent = pX + "%"; }
-  if (seg2) { seg2.style.width = p2 + "%"; seg2.querySelector("small").textContent = p2 + "%"; }
+  const p1 = opts["1"] || 33, pX = opts["X"] || 34, p2 = opts["2"] || 33;
+  const s1 = $(seg1Id), sX = $(segXId), s2 = $(seg2Id);
+  if (s1) { s1.style.width = p1 + "%"; s1.querySelector("small").textContent = p1 + "%"; }
+  if (sX) { sX.style.width = pX + "%"; sX.querySelector("small").textContent = pX + "%"; }
+  if (s2) { s2.style.width = p2 + "%"; s2.querySelector("small").textContent = p2 + "%"; }
 }
 
 function renderOU(pickEl, confEl, linesEl, market) {
   if (!market || !pickEl) return;
   pickEl.textContent = market.prediction || "--";
-  confEl.textContent = market.confidence || "--";
+  if (confEl) confEl.textContent = market.confidence || "--";
   if (!linesEl) return;
-  const lines = market.all_thresholds || [];
-  linesEl.innerHTML = lines.map(l =>
+  linesEl.innerHTML = (market.all_thresholds || []).map(l =>
     `<span class="ou-chip ${l.pick.toLowerCase()}">${l.label} <b>${l.confidence}%</b></span>`
   ).join("");
 }
@@ -313,7 +340,7 @@ function renderHTFT(containerId, options, bestPick) {
 function renderScores(scores) {
   const podium = $("scores-podium");
   if (!podium) return;
-  const ranks = ["🥇", "🥈", "🥉", "4th", "5th"];
+  const ranks = ["🥇", "🥈", "🥉", "4th", "5th", "6th"];
   podium.innerHTML = scores.map((s, i) => `
     <div class="score-block">
       <div class="score-rank">${ranks[i] || (i+1)+"th"}</div>

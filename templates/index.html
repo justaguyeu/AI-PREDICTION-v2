@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BetPawa AI Engine | 14 Markets</title>
+  <title>BetPawa AI Engine | Deep Analysis</title>
+  <meta name="description" content="AI-powered BetPawa match predictions using Dixon-Coles Poisson model and real football statistics for all 14 markets.">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-  
   <div class="app-layout">
-    
-    <!-- ─── SIDEBAR: MATCHES ─── -->
+
+    <!-- ─── SIDEBAR ─── -->
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="logo">
@@ -26,7 +26,6 @@
           <span class="search-icon">🔍</span>
         </div>
       </div>
-
       <div class="sidebar-content">
         <div id="sidebar-loading" class="sidebar-msg">
           <div class="spinner"></div>
@@ -36,28 +35,41 @@
           <p>Failed to load matches.</p>
           <button id="retry-btn" class="btn-small">Retry</button>
         </div>
-        <div id="matches-list" class="match-list hidden">
-          <!-- Populated by JS -->
-        </div>
+        <div id="matches-list" class="match-list hidden"></div>
       </div>
     </aside>
 
     <!-- ─── MAIN CONTENT ─── -->
     <main class="main-content">
-      
+
+      <!-- Empty State -->
       <div id="empty-state" class="empty-state">
+        <!-- Best Bets Panel -->
+        <div class="best-bets-panel" id="best-bets-panel">
+          <div class="bb-header">
+            <span class="bb-fire">🔥</span>
+            <h3>Best Bets Today</h3>
+            <span class="bb-subtitle">Top picks from analysed matches</span>
+          </div>
+          <div id="best-bets-list" class="bb-list">
+            <div class="bb-loading"><div class="spinner small"></div><span>Loading best bets...</span></div>
+          </div>
+        </div>
         <div class="empty-icon">🏟️</div>
         <h2>Select a Match</h2>
-        <p>Choose a fixture from the sidebar to generate 14-market AI predictions.</p>
+        <p>Choose a fixture from the sidebar to generate AI predictions across 14 BetPawa markets.</p>
       </div>
 
+      <!-- Analysing State -->
       <div id="analyzing-state" class="empty-state hidden">
         <div class="radar-spinner"></div>
-        <h2>Analyzing Data...</h2>
-        <p>Scraping web data, assessing form, and generating Poisson matrix.</p>
+        <h2>Deep Analysis Running...</h2>
+        <p>Scraping web data · Fetching team stats · Computing Dixon-Coles Poisson matrix</p>
       </div>
 
+      <!-- Prediction View -->
       <div id="prediction-view" class="prediction-view hidden">
+
         <!-- Match Hero Header -->
         <header class="match-hero">
           <div class="team-block">
@@ -67,6 +79,7 @@
           <div class="vs-block">
             <div class="vs-badge">VS</div>
             <div class="date-badge" id="last-updated">Today</div>
+            <div id="best-bet-banner" class="best-bet-banner hidden"></div>
           </div>
           <div class="team-block">
             <div class="team-avatar" id="p-away-avatar">A</div>
@@ -74,13 +87,14 @@
           </div>
         </header>
 
-        <!-- Overall Confidence & xG -->
+        <!-- Dashboard: Confidence + xG + Team Stats -->
         <div class="dashboard-header">
           <div class="conf-wrap">
             <span class="conf-label">Engine Confidence</span>
             <div id="p-confidence-badge" class="conf-badge">CALCULATING</div>
+            <div id="data-source-badge" class="data-source-badge hidden"></div>
           </div>
-          
+
           <div class="xg-wrap">
             <div class="xg-labels">
               <span id="xg-home-label">xG 1.00</span>
@@ -90,25 +104,60 @@
               <div id="xg-bar-home" class="xg-bar home"></div>
               <div id="xg-bar-away" class="xg-bar away"></div>
             </div>
-            <div class="xg-title">Expected Goals (Poisson Mean)</div>
+            <div class="xg-title">Expected Goals (Dixon-Coles Poisson)</div>
+          </div>
+
+          <div class="stats-wrap" id="stats-wrap">
+            <div class="stat-row">
+              <span class="stat-label" id="stat-home-label">Home</span>
+              <div class="stat-bars">
+                <div class="stat-bar-group">
+                  <div class="stat-mini-label">ATK</div>
+                  <div class="stat-bar-track"><div class="stat-bar atk" id="stat-h-atk"></div></div>
+                </div>
+                <div class="stat-bar-group">
+                  <div class="stat-mini-label">DEF</div>
+                  <div class="stat-bar-track"><div class="stat-bar def" id="stat-h-def"></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="stat-row">
+              <span class="stat-label" id="stat-away-label">Away</span>
+              <div class="stat-bars">
+                <div class="stat-bar-group">
+                  <div class="stat-mini-label">ATK</div>
+                  <div class="stat-bar-track"><div class="stat-bar atk" id="stat-a-atk"></div></div>
+                </div>
+                <div class="stat-bar-group">
+                  <div class="stat-mini-label">DEF</div>
+                  <div class="stat-bar-track"><div class="stat-bar def" id="stat-a-def"></div></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
+        <!-- AI Analysis Reasoning Card -->
+        <div id="reasoning-card" class="reasoning-card hidden">
+          <div class="reasoning-icon">🤖</div>
+          <div class="reasoning-text" id="reasoning-text"></div>
+        </div>
+
         <div id="result-container" class="hidden">
-          
+
           <!-- Tab Navigation -->
           <nav class="tabs">
             <button class="tab-btn active" data-tab="ft">Full Time</button>
             <button class="tab-btn" data-tab="half">Halves</button>
             <button class="tab-btn" data-tab="special">Specials</button>
           </nav>
-          
+
           <div class="tab-content">
-            
+
             <!-- ─── TAB: FULL TIME ─── -->
             <div id="tab-ft" class="tab-panel active">
               <div class="card-grid">
-                
+
                 <!-- 1X2 FT -->
                 <div class="pred-card highlight">
                   <div class="card-head">1X2 | Full Time <span class="conf-mini" id="conf-1x2-ft">--</span></div>
@@ -151,9 +200,7 @@
                 <!-- Correct Score Podium -->
                 <div class="pred-card span-full">
                   <div class="card-head">Most Likely Exact Scores</div>
-                  <div class="scores-podium" id="scores-podium">
-                    <!-- JS Injects -->
-                  </div>
+                  <div class="scores-podium" id="scores-podium"></div>
                 </div>
 
               </div>
@@ -161,9 +208,8 @@
 
             <!-- ─── TAB: HALVES ─── -->
             <div id="tab-half" class="tab-panel">
-               <div class="card-grid">
-                
-                <!-- 1X2 H1 -->
+              <div class="card-grid">
+
                 <div class="pred-card">
                   <div class="card-head">1X2 | 1st Half <span class="conf-mini" id="conf-1x2-h1">--</span></div>
                   <div class="pick-value small" id="pick-1x2-h1">--</div>
@@ -174,7 +220,6 @@
                   </div>
                 </div>
 
-                <!-- 1X2 H2 -->
                 <div class="pred-card">
                   <div class="card-head">1X2 | 2nd Half <span class="conf-mini" id="conf-1x2-h2">--</span></div>
                   <div class="pick-value small" id="pick-1x2-h2">--</div>
@@ -185,68 +230,61 @@
                   </div>
                 </div>
 
-                <!-- O/U H1 -->
                 <div class="pred-card">
                   <div class="card-head">Over/Under | 1st Half <span class="conf-mini" id="conf-ou-h1">--</span></div>
                   <div class="pick-value small" id="pick-ou-h1">--</div>
                   <div class="line-chips" id="lines-ou-h1"></div>
                 </div>
 
-                <!-- O/U H2 -->
                 <div class="pred-card">
                   <div class="card-head">Over/Under | 2nd Half <span class="conf-mini" id="conf-ou-h2">--</span></div>
                   <div class="pick-value small" id="pick-ou-h2">--</div>
                   <div class="line-chips" id="lines-ou-h2"></div>
                 </div>
 
-               </div>
+              </div>
             </div>
 
             <!-- ─── TAB: SPECIALS ─── -->
             <div id="tab-special" class="tab-panel">
-               <div class="card-grid">
-                 
-                 <!-- Boosted -->
-                 <div class="pred-card premium">
+              <div class="card-grid">
+
+                <div class="pred-card premium">
                   <div class="card-head">Engine's Best Pick <span class="conf-mini" id="conf-boosted">--</span></div>
                   <div class="pick-value large text-gold" id="pick-boosted">--</div>
-                 </div>
+                </div>
 
-                 <!-- HT/FT -->
-                 <div class="pred-card">
+                <div class="pred-card">
                   <div class="card-head">Half Time / Full Time <span class="conf-mini" id="conf-htft">--</span></div>
                   <div class="pick-value" id="pick-htft">--</div>
                   <div class="opts-grid htft" id="opts-htft"></div>
-                 </div>
+                </div>
 
-                 <!-- Next Goal -->
-                 <div class="pred-card">
+                <div class="pred-card">
                   <div class="card-head">Next Goal (1st) <span class="conf-mini" id="conf-ng">--</span></div>
                   <div class="pick-value" id="pick-ng">--</div>
                   <div class="opts-grid" id="opts-ng"></div>
-                 </div>
+                </div>
 
-                 <!-- O/U Home -->
-                 <div class="pred-card">
+                <div class="pred-card">
                   <div class="card-head"><span id="label-ou-home">Home O/U</span> <span class="conf-mini" id="conf-ou-home">--</span></div>
                   <div class="pick-value small" id="pick-ou-home">--</div>
                   <div class="line-chips" id="lines-ou-home"></div>
-                 </div>
+                </div>
 
-                 <!-- O/U Away -->
-                 <div class="pred-card">
+                <div class="pred-card">
                   <div class="card-head"><span id="label-ou-away">Away O/U</span> <span class="conf-mini" id="conf-ou-away">--</span></div>
                   <div class="pick-value small" id="pick-ou-away">--</div>
                   <div class="line-chips" id="lines-ou-away"></div>
-                 </div>
+                </div>
 
-               </div>
+              </div>
             </div>
 
-          </div>
-        </div>
+          </div><!-- /tab-content -->
+        </div><!-- /result-container -->
 
-      </div>
+      </div><!-- /prediction-view -->
     </main>
   </div>
 
