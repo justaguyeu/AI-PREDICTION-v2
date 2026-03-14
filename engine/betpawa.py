@@ -19,6 +19,7 @@ def scrape_matches():
     from selenium.webdriver.chrome.service import Service
     from webdriver_manager.chrome import ChromeDriverManager
     from selenium_stealth import stealth
+    import os
 
     options = Options()
     options.add_argument("--headless=new")
@@ -27,6 +28,12 @@ def scrape_matches():
     options.add_argument("--disable-dev-shm-usage")
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option('useAutomationExtension', False)
+    
+    # Render Support: Use custom downloaded Chrome binary if it exists
+    if os.environ.get("RENDER"):
+        chrome_bin = "/opt/render/project/.render/chrome/opt/google/chrome/google-chrome"
+        if os.path.exists(chrome_bin):
+            options.binary_location = chrome_bin
 
     driver = None
     matches = []

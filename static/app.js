@@ -13,9 +13,20 @@ document.addEventListener("DOMContentLoaded", () => {
   loadMatches();
   loadBestBets();
   initSearch();
+  initMobileNav();
   $("retry-btn").addEventListener("click", loadMatches);
   $("last-updated").textContent = "Updated: " + new Date().toLocaleTimeString();
 });
+
+function initMobileNav() {
+  const btn = $("mobile-nav-btn");
+  const sidebar = $("sidebar");
+  if (btn && sidebar) {
+    btn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+    });
+  }
+}
 
 /* ─── Tab System ────────────────────────────────────────── */
 function initTabs() {

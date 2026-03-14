@@ -12,7 +12,7 @@
   <div class="app-layout">
 
     <!-- ─── SIDEBAR ─── -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <div class="logo">
           <div class="logo-icon">⚡</div>
@@ -21,10 +21,13 @@
             <small>AI PREDICTION ENGINE</small>
           </div>
         </div>
-        <div class="search-box">
-          <input type="text" id="match-search" placeholder="Search fixtures...">
-          <span class="search-icon">🔍</span>
-        </div>
+        <button id="mobile-nav-btn" class="mobile-nav-toggle" aria-label="Toggle Menu">
+          ☰
+        </button>
+      </div>
+      <div class="search-box">
+        <input type="text" id="match-search" placeholder="Search fixtures...">
+        <span class="search-icon">🔍</span>
       </div>
       <div class="sidebar-content">
         <div id="sidebar-loading" class="sidebar-msg">
