@@ -31,7 +31,7 @@ def scrape_matches():
     
     # Render Support: Use custom downloaded Chrome binary if it exists
     if os.environ.get("RENDER"):
-        chrome_bin = "/opt/render/project/.render/chrome/opt/google/chrome/google-chrome"
+        chrome_bin = "/opt/render/project/.render/chrome/chrome-linux64/chrome"
         if os.path.exists(chrome_bin):
             options.binary_location = chrome_bin
 
