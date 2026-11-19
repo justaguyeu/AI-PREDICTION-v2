@@ -29,6 +29,11 @@
         <input type="text" id="match-search" placeholder="Search fixtures...">
         <span class="search-icon">🔍</span>
       </div>
+      <div class="filter-box">
+        <select id="league-filter" aria-label="Filter by league">
+          <option value="">All leagues</option>
+        </select>
+      </div>
       <div class="sidebar-content">
         <div id="sidebar-loading" class="sidebar-msg">
           <div class="spinner"></div>
@@ -39,6 +44,9 @@
           <button id="retry-btn" class="btn-small">Retry</button>
         </div>
         <div id="matches-list" class="match-list hidden"></div>
+      </div>
+      <div class="sidebar-foot" id="data-refresh">
+        Sources: BetPawa TZ odds · football-data.co.uk results · ESPN scores
       </div>
     </aside>
 
@@ -67,7 +75,7 @@
       <div id="analyzing-state" class="empty-state hidden">
         <div class="radar-spinner"></div>
         <h2>Deep Analysis Running...</h2>
-        <p>Scraping web data · Fetching team stats · Computing Dixon-Coles Poisson matrix</p>
+        <p>Fitting team ratings on real results · Comparing with BetPawa odds · Building the score matrix</p>
       </div>
 
       <!-- Prediction View -->
@@ -93,7 +101,7 @@
         <!-- Dashboard: Confidence + xG + Team Stats -->
         <div class="dashboard-header">
           <div class="conf-wrap">
-            <span class="conf-label">Engine Confidence</span>
+            <span class="conf-label" title="Calibrated hit rate of the 1X2 pick: HIGH >= 60%, MEDIUM 50-60%, LOW below 50%">Prediction strength</span>
             <div id="p-confidence-badge" class="conf-badge">CALCULATING</div>
             <div id="data-source-badge" class="data-source-badge hidden"></div>
           </div>
@@ -140,11 +148,37 @@
           </div>
         </div>
 
-        <!-- AI Analysis Reasoning Card -->
+        <!-- Probabilities + three separate confidence measures -->
+        <div id="summary-panel" class="summary-panel hidden">
+          <div class="prob-big-row">
+            <div class="prob-big"><span class="prob-big-label">Home win</span><span class="prob-big-val" id="sum-home">--</span></div>
+            <div class="prob-big"><span class="prob-big-label">Draw</span><span class="prob-big-val" id="sum-draw">--</span></div>
+            <div class="prob-big"><span class="prob-big-label">Away win</span><span class="prob-big-val" id="sum-away">--</span></div>
+          </div>
+          <div class="summary-lines">
+            <div id="sum-most-likely" class="sum-line"></div>
+            <div id="sum-goals" class="sum-line muted"></div>
+          </div>
+          <div class="assess-badges" id="assess-badges"></div>
+        </div>
+
+        <!-- Why / what could make it wrong -->
         <div id="reasoning-card" class="reasoning-card hidden">
           <div class="reasoning-icon">🤖</div>
-          <div class="reasoning-text" id="reasoning-text"></div>
+          <div class="reasoning-cols">
+            <div>
+              <div class="list-title">Why</div>
+              <ul class="plain-list" id="factors-list"></ul>
+              <div class="reasoning-text" id="reasoning-text"></div>
+            </div>
+            <div>
+              <div class="list-title warn">What could make it wrong</div>
+              <ul class="plain-list" id="risks-list"></ul>
+            </div>
+          </div>
         </div>
+
+        <div id="prediction-error" class="prediction-error hidden"></div>
 
         <div id="result-container" class="hidden">
 
@@ -153,6 +187,7 @@
             <button class="tab-btn active" data-tab="ft">Full Time</button>
             <button class="tab-btn" data-tab="half">Halves</button>
             <button class="tab-btn" data-tab="special">Specials</button>
+            <button class="tab-btn" data-tab="analysis">Analysis</button>
           </nav>
 
           <div class="tab-content">
@@ -279,6 +314,39 @@
                   <div class="card-head"><span id="label-ou-away">Away O/U</span> <span class="conf-mini" id="conf-ou-away">--</span></div>
                   <div class="pick-value small" id="pick-ou-away">--</div>
                   <div class="line-chips" id="lines-ou-away"></div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ─── TAB: ANALYSIS ─── -->
+            <div id="tab-analysis" class="tab-panel">
+              <div class="card-grid">
+
+                <div class="pred-card span-full">
+                  <div class="card-head">Model vs Bookmaker · Expected value</div>
+                  <div id="value-table" class="table-wrap"><p class="muted">No odds supplied for this match.</p></div>
+                  <p class="fine-print" id="value-note"></p>
+                </div>
+
+                <div class="pred-card span-full">
+                  <div class="card-head">Recent form <span class="conf-mini" id="form-scope"></span></div>
+                  <div id="form-table" class="table-wrap"><p class="muted">No results data for these teams.</p></div>
+                </div>
+
+                <div class="pred-card">
+                  <div class="card-head">Home / away records</div>
+                  <div id="venue-form"><p class="muted">No results data.</p></div>
+                </div>
+
+                <div class="pred-card">
+                  <div class="card-head">Head-to-head <span class="conf-mini">context only</span></div>
+                  <div id="h2h-list"><p class="muted">No meetings in the data.</p></div>
+                </div>
+
+                <div class="pred-card span-full">
+                  <div class="card-head">Data sources &amp; freshness</div>
+                  <div id="sources-list" class="fine-print"></div>
                 </div>
 
               </div>

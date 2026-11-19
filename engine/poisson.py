@@ -1,257 +1,140 @@
-import math
+"""
+engine/poisson.py
+=================
+Turns expected goals (λ home, μ away) and the Dixon-Coles ρ into the 14
+BetPawa markets. Every market is read off the same score matrix, so the
+probabilities are mutually consistent.
+"""
+import numpy as np
 
-def _poisson_pmf(k, lam):
-    """Calculate the Poisson probability mass function P(X=k)."""
-    if lam <= 0: return 0
-    return (lam**k * math.exp(-lam)) / math.factorial(k)
+from engine.dixon_coles import score_matrix
+from engine.market import outcome_probs
 
-def score_matrix(home_xg, away_xg, max_goals=8):
-    """
-    Generate a 2D matrix of probabilities for every exact scoreline.
-    M[h][a] = probability of home scoring h and away scoring a.
-    """
-    matrix = [[0.0 for _ in range(max_goals)] for _ in range(max_goals)]
-    for h in range(max_goals):
-        for a in range(max_goals):
-            matrix[h][a] = _poisson_pmf(h, home_xg) * _poisson_pmf(a, away_xg)
-    return matrix
-
-def _market_1x2(matrix):
-    """1X2 Market probabilities."""
-    home_win, draw, away_win = 0.0, 0.0, 0.0
-    for h in range(len(matrix)):
-        for a in range(len(matrix[0])):
-            prob = matrix[h][a]
-            if h > a:   home_win += prob
-            elif h == a: draw    += prob
-            else:        away_win += prob
-    return home_win, draw, away_win
-
-def _market_btts(matrix):
-    """Both Teams To Score probabilities."""
-    btts_yes = 0.0
-    for h in range(1, len(matrix)):
-        for a in range(1, len(matrix[0])):
-            btts_yes += matrix[h][a]
-    return btts_yes, 1.0 - btts_yes
-
-def _market_over_under(matrix, threshold):
-    """Over/Under threshold probabilities."""
-    under, over = 0.0, 0.0
-    for h in range(len(matrix)):
-        for a in range(len(matrix[0])):
-            if (h + a) > threshold: over  += matrix[h][a]
-            else:                   under += matrix[h][a]
-    return over, under
-
-def _market_team_ou(xg, threshold):
-    """Over/Under threshold for a single team based on its xG."""
-    under = 0.0
-    for k in range(int(threshold + 1)):
-        under += _poisson_pmf(k, xg)
-    return 1.0 - under, under  # over, under
-
-def _correct_scores(matrix):
-    """Extract and sort correct score probabilities."""
-    scores = []
-    for h in range(len(matrix)):
-        for a in range(len(matrix[0])):
-            if matrix[h][a] > 0.005:
-                scores.append({"score": f"{h} - {a}", "prob": round(matrix[h][a] * 100, 2)})
-    return sorted(scores, key=lambda x: x["prob"], reverse=True)
+FIRST_HALF_SHARE = 0.45   # ~45% of goals are scored before half-time
 
 
-def all_markets(analysis, home_team="", away_team="", team_stats=None):
-    """
-    Derives all 14 betting markets.
-    NOW uses Dixon-Coles xG when real team_stats are provided.
-    NLP sentiment is used as a secondary modifier (capped at ±15%).
-    """
-    net_score     = analysis.get("net_score", 0)
-    form_diff     = analysis.get("form_differential", 0)
-    inj_adj       = analysis.get("injury_adjustment", 0)  # NEW: injury impact
+def _ou(m: np.ndarray, line: float) -> tuple[float, float]:
+    total = np.add.outer(np.arange(m.shape[0]), np.arange(m.shape[1]))
+    over = float(m[total > line].sum())
+    return over, 1.0 - over
 
-    # ── XG CALCULATION ────────────────────────────────────────────────────────
-    if team_stats and team_stats.get("home_attack"):
-        # Primary: Dixon-Coles / real stats based xG (imported inline to avoid circular)
-        from engine.stats import compute_dixon_coles_xg
-        xg_h, xg_a = compute_dixon_coles_xg(team_stats)
 
-        # Secondary: NLP sentiment modifier — capped at ±20% of xG
-        nlp_mod_h =  (net_score * 0.04) + (form_diff * 0.02)
-        nlp_mod_a = -(net_score * 0.04) - (form_diff * 0.02)
-        max_mod = xg_h * 0.20
-        nlp_mod_h = max(-max_mod, min(nlp_mod_h, max_mod))
-        nlp_mod_a = max(-xg_a * 0.20, min(nlp_mod_a, xg_a * 0.20))
+def _team_ou(goal_probs: np.ndarray, line: float) -> tuple[float, float]:
+    over = float(goal_probs[np.arange(len(goal_probs)) > line].sum())
+    return over, 1.0 - over
 
-        xg_h = max(0.3, xg_h + nlp_mod_h + inj_adj)
-        xg_a = max(0.2, xg_a + nlp_mod_a - inj_adj)
-        stats_driven = True
-    else:
-        # Fallback: pure NLP (old behaviour)
-        base_xg_h = 1.48
-        base_xg_a = 1.17
-        xg_h = max(0.3, base_xg_h + (net_score * 0.1) + (form_diff * 0.05))
-        xg_a = max(0.2, base_xg_a - (net_score * 0.1) - (form_diff * 0.05))
-        stats_driven = False
 
-    # Round for display
-    xg_h = round(xg_h, 2)
-    xg_a = round(xg_a, 2)
+def _pick_1x2(p) -> tuple[str, float]:
+    i = int(np.argmax(p))
+    return ["HOME WIN", "DRAW", "AWAY WIN"][i], float(p[i])
 
-    # Generate matrices
-    M_ft = score_matrix(xg_h, xg_a, 8)
-    M_h1 = score_matrix(xg_h * 0.44, xg_a * 0.44, 6)
-    M_h2 = score_matrix(xg_h * 0.56, xg_a * 0.56, 6)
 
+def _fmt_ou(over, under, line):
+    return ("OVER " if over > under else "UNDER ") + str(line), max(over, under) * 100
+
+
+def _thresholds(fn, lines):
+    out = []
+    for line in lines:
+        ov, un = fn(line)
+        out.append({"pick": "OVER" if ov > un else "UNDER",
+                    "label": f"{'O' if ov > un else 'U'}{line}",
+                    "confidence": round(max(ov, un) * 100, 1),
+                    "over": round(ov * 100, 1)})
+    return out
+
+
+def correct_scores(m: np.ndarray, n: int = 6) -> list[dict]:
+    flat = [(m[h, a], h, a) for h in range(m.shape[0]) for a in range(m.shape[1])]
+    flat.sort(reverse=True)
+    return [{"score": f"{h} - {a}", "prob": round(p * 100, 2)} for p, h, a in flat[:n]]
+
+
+def all_markets(lam: float, mu: float, rho: float = 0.0, home_team: str = "", away_team: str = ""):
+    """Returns (markets, correct_scores, meta)."""
+    M = score_matrix(lam, mu, rho)
+    M1 = score_matrix(lam * FIRST_HALF_SHARE, mu * FIRST_HALF_SHARE, 0.0, 7)
+    M2 = score_matrix(lam * (1 - FIRST_HALF_SHARE), mu * (1 - FIRST_HALF_SHARE), 0.0, 7)
     markets = {}
 
-    # Helper
-    def format_ou(over, under, line):
-        if over > under: return "OVER "  + str(line), over  * 100
-        return             "UNDER " + str(line), under * 100
+    # 1. 1X2
+    hw, dr, aw = outcome_probs(M)
+    pick, p = _pick_1x2((hw, dr, aw))
+    markets["1x2_ft"] = {"prediction": pick, "confidence": f"{p * 100:.1f}%",
+                         "options": {"1": round(hw * 100, 1), "X": round(dr * 100, 1), "2": round(aw * 100, 1)}}
 
-    # ── 1. 1X2 Full Time ──────────────────────────────────────────────────────
-    hw, dr, aw = _market_1x2(M_ft)
-    if hw > dr and hw > aw:   pick_1x2, conf_1x2 = "HOME WIN", hw * 100
-    elif aw > hw and aw > dr: pick_1x2, conf_1x2 = "AWAY WIN", aw * 100
-    else:                     pick_1x2, conf_1x2 = "DRAW",     dr * 100
-
-    markets["1x2_ft"] = {
-        "prediction": pick_1x2,
-        "confidence": f"{conf_1x2:.1f}%",
-        "options": {"1": round(hw*100,1), "X": round(dr*100,1), "2": round(aw*100,1)}
-    }
-
-    # ── 2. Boosted Pick ───────────────────────────────────────────────────────
-    if pick_1x2 != "DRAW" and conf_1x2 > 52:
-        markets["boosted"] = {"prediction": pick_1x2, "confidence": f"{min(conf_1x2 + 4, 97):.1f}%"}
+    # 2. Boosted pick: the 1X2 pick if it is a clear favourite, otherwise Over 1.5
+    o15, _ = _ou(M, 1.5)
+    if pick != "DRAW" and p > 0.52:
+        markets["boosted"] = {"prediction": pick, "confidence": f"{p * 100:.1f}%"}
     else:
-        o_ft, _ = _market_over_under(M_ft, 1.5)
-        markets["boosted"] = {"prediction": "OVER 1.5", "confidence": f"{o_ft*100:.1f}%"}
+        markets["boosted"] = {"prediction": "OVER 1.5", "confidence": f"{o15 * 100:.1f}%"}
 
-    # ── 3. Double Chance ──────────────────────────────────────────────────────
-    hw_dr = hw + dr; aw_dr = aw + dr; hw_aw = hw + aw
-    opts_dc = {"1X": round(hw_dr*100,1), "X2": round(aw_dr*100,1), "12": round(hw_aw*100,1)}
-    best_dc = max(opts_dc, key=opts_dc.get)
-    markets["double_chance"] = {
-        "prediction": best_dc + " DC",
-        "confidence": f"{opts_dc[best_dc]:.1f}%",
-        "options": opts_dc
-    }
+    # 3. Double chance
+    dc = {"1X": round((hw + dr) * 100, 1), "X2": round((aw + dr) * 100, 1), "12": round((hw + aw) * 100, 1)}
+    best_dc = max(dc, key=dc.get)
+    markets["double_chance"] = {"prediction": best_dc + " DC", "confidence": f"{dc[best_dc]:.1f}%", "options": dc}
 
-    # ── 4. BTTS ───────────────────────────────────────────────────────────────
-    btts_y, btts_n = _market_btts(M_ft)
-    markets["btts"] = {
-        "prediction": "YES" if btts_y > btts_n else "NO",
-        "confidence": f"{max(btts_y, btts_n)*100:.1f}%",
-        "options": {"YES": round(btts_y*100,1), "NO": round(btts_n*100,1)}
-    }
+    # 4. BTTS
+    btts_y = float(M[1:, 1:].sum())
+    markets["btts"] = {"prediction": "YES" if btts_y > 0.5 else "NO",
+                       "confidence": f"{max(btts_y, 1 - btts_y) * 100:.1f}%",
+                       "options": {"YES": round(btts_y * 100, 1), "NO": round((1 - btts_y) * 100, 1)}}
 
-    # ── 5. Next Goal ──────────────────────────────────────────────────────────
-    p_00 = M_ft[0][0]
-    prob_goal = 1.0 - p_00
-    sum_xg = xg_h + xg_a
-    h_first = prob_goal * (xg_h / sum_xg) if sum_xg > 0 else 0
-    a_first = prob_goal * (xg_a / sum_xg) if sum_xg > 0 else 0
-    opts_ng = {"Home": round(h_first*100,1), "Away": round(a_first*100,1), "None": round(p_00*100,1)}
-    markets["next_goal"] = {
-        "prediction": max(opts_ng, key=opts_ng.get),
-        "confidence": f"{max(opts_ng.values()):.1f}%",
-        "options": opts_ng
-    }
+    # 5. Next (first) goal
+    p00 = float(M[0, 0])
+    ng = {"Home": round((1 - p00) * lam / (lam + mu) * 100, 1),
+          "Away": round((1 - p00) * mu / (lam + mu) * 100, 1),
+          "None": round(p00 * 100, 1)}
+    markets["next_goal"] = {"prediction": max(ng, key=ng.get), "confidence": f"{max(ng.values()):.1f}%", "options": ng}
 
-    # ── 6. Over/Under FT ──────────────────────────────────────────────────────
-    o_ft_25, u_ft_25 = _market_over_under(M_ft, 2.5)
-    pick_ou_ft, conf_ou_ft = format_ou(o_ft_25, u_ft_25, 2.5)
-    all_ou_ft = []
-    for line in [0.5, 1.5, 2.5, 3.5]:
-        ov, un = _market_over_under(M_ft, line)
-        lbl = "O" if ov > un else "U"
-        all_ou_ft.append({"pick": "OVER" if ov > un else "UNDER",
-                          "label": f"{lbl}{line}", "confidence": round(max(ov,un)*100,1)})
-    markets["ou_ft"] = {"prediction": pick_ou_ft, "confidence": f"{conf_ou_ft:.1f}%", "all_thresholds": all_ou_ft}
+    # 6. Over/Under FT
+    pk, cf = _fmt_ou(*_ou(M, 2.5), 2.5)
+    markets["ou_ft"] = {"prediction": pk, "confidence": f"{cf:.1f}%",
+                        "all_thresholds": _thresholds(lambda l: _ou(M, l), [0.5, 1.5, 2.5, 3.5, 4.5])}
 
-    # ── 7 & 8. O/U Home & Away ───────────────────────────────────────────────
-    for side, team, xg in [("home", home_team, xg_h), ("away", away_team, xg_a)]:
-        ov, un = _market_team_ou(xg, 1.5)
-        pick_ou, conf_ou = format_ou(ov, un, 1.5)
-        all_ou = []
-        for line in [0.5, 1.5, 2.5]:
-            ov_l, un_l = _market_team_ou(xg, line)
-            lbl = "O" if ov_l > un_l else "U"
-            all_ou.append({"pick": "OVER" if ov_l > un_l else "UNDER",
-                          "label": f"{lbl}{line}", "confidence": round(max(ov_l,un_l)*100,1)})
-        markets[f"ou_{side}"] = {
-            "prediction": pick_ou, "confidence": f"{conf_ou:.1f}%",
-            "all_thresholds": all_ou, "label": f"{team} O/U | FT"
-        }
+    # 7 & 8. Team totals
+    for side, team, goals in [("home", home_team, M.sum(1)), ("away", away_team, M.sum(0))]:
+        pk, cf = _fmt_ou(*_team_ou(goals, 1.5), 1.5)
+        markets[f"ou_{side}"] = {"prediction": pk, "confidence": f"{cf:.1f}%",
+                                 "all_thresholds": _thresholds(lambda l, g=goals: _team_ou(g, l), [0.5, 1.5, 2.5]),
+                                 "label": f"{team} O/U | FT"}
 
-    # ── 9. HT/FT (strict convolution) ────────────────────────────────────────
-    opts_htft = {f"{a}/{b}": 0.0 for a in "1X2" for b in "1X2"}
-    for h1 in range(5):
-        for a1 in range(5):
-            prob1 = M_h1[h1][a1]
-            ht_sym = "1" if h1 > a1 else ("2" if a1 > h1 else "X")
-            for h2 in range(5):
-                for a2 in range(5):
-                    prob2 = M_h2[h2][a2]
-                    h_ft, a_ft = h1+h2, a1+a2
-                    ft_sym = "1" if h_ft > a_ft else ("2" if a_ft > h_ft else "X")
-                    opts_htft[f"{ht_sym}/{ft_sym}"] += (prob1 * prob2)
-    for k in opts_htft: opts_htft[k] = round(opts_htft[k] * 100, 1)
-    best_htft = max(opts_htft, key=opts_htft.get)
-    sorted_htft = sorted(opts_htft.items(), key=lambda x: x[1], reverse=True)[:4]
-    markets["ht_ft"] = {"prediction": best_htft, "confidence": f"{opts_htft[best_htft]:.1f}%",
-                        "options": dict(sorted_htft)}
+    # 9. HT/FT
+    n = M1.shape[0]
+    htft = {f"{a}/{b}": 0.0 for a in "1X2" for b in "1X2"}
+    sym = lambda h, a: "1" if h > a else ("2" if a > h else "X")
+    for h1 in range(n):
+        for a1 in range(n):
+            for h2 in range(n):
+                for a2 in range(n):
+                    htft[f"{sym(h1, a1)}/{sym(h1 + h2, a1 + a2)}"] += M1[h1, a1] * M2[h2, a2]
+    htft = {k: round(v * 100, 1) for k, v in htft.items()}
+    best = max(htft, key=htft.get)
+    markets["ht_ft"] = {"prediction": best, "confidence": f"{htft[best]:.1f}%",
+                        "options": dict(sorted(htft.items(), key=lambda x: -x[1])[:4])}
 
-    # ── 10. 3-Way Handicap (Home -1) ─────────────────────────────────────────
-    hw_hcp = dr_hcp = aw_hcp = 0.0
-    for h in range(len(M_ft)):
-        for a in range(len(M_ft[0])):
-            h_adj = h - 1
-            if h_adj > a:    hw_hcp += M_ft[h][a]
-            elif h_adj == a: dr_hcp += M_ft[h][a]
-            else:            aw_hcp += M_ft[h][a]
-    opts_hcp = {"1 (-1)": round(hw_hcp*100,1), "X (-1)": round(dr_hcp*100,1), "2 (-1)": round(aw_hcp*100,1)}
-    markets["handicap"] = {"prediction": max(opts_hcp, key=opts_hcp.get),
-                           "confidence": f"{max(opts_hcp.values()):.1f}%", "options": opts_hcp}
+    # 10. 3-way handicap, home -1
+    diff = np.subtract.outer(np.arange(M.shape[0]), np.arange(M.shape[1]))
+    hcp = {"1 (-1)": round(float(M[diff >= 2].sum()) * 100, 1),
+           "X (-1)": round(float(M[diff == 1].sum()) * 100, 1),
+           "2 (-1)": round(float(M[diff <= 0].sum()) * 100, 1)}
+    markets["handicap"] = {"prediction": max(hcp, key=hcp.get), "confidence": f"{max(hcp.values()):.1f}%",
+                           "options": hcp}
 
-    # ── 11 & 12. 1X2 First / Second Half ─────────────────────────────────────
-    for ht_str, ht_M in [("h1", M_h1), ("h2", M_h2)]:
-        hht, dht, aht = _market_1x2(ht_M)
-        if hht > dht and hht > aht:   best_ht, conf_ht = "HOME WIN", hht
-        elif aht > hht and aht > dht: best_ht, conf_ht = "AWAY WIN", aht
-        else:                         best_ht, conf_ht = "DRAW",     dht
-        markets[f"1x2_{ht_str}"] = {
-            "prediction": best_ht, "confidence": f"{conf_ht*100:.1f}%",
-            "options": {"1": round(hht*100,1), "X": round(dht*100,1), "2": round(aht*100,1)}
-        }
+    # 11-14. Halves
+    for key, H in [("h1", M1), ("h2", M2)]:
+        p3 = outcome_probs(H)
+        pick_h, p_h = _pick_1x2(p3)
+        markets[f"1x2_{key}"] = {"prediction": pick_h, "confidence": f"{p_h * 100:.1f}%",
+                                 "options": {"1": round(p3[0] * 100, 1), "X": round(p3[1] * 100, 1),
+                                             "2": round(p3[2] * 100, 1)}}
+        pk, cf = _fmt_ou(*_ou(H, 0.5), 0.5)
+        markets[f"ou_{key}"] = {"prediction": pk, "confidence": f"{cf:.1f}%",
+                                "all_thresholds": _thresholds(lambda l, H=H: _ou(H, l), [0.5, 1.5, 2.5])}
 
-    # ── 13 & 14. O/U First / Second Half ─────────────────────────────────────
-    for ht_str, ht_M in [("h1", M_h1), ("h2", M_h2)]:
-        o_ht, u_ht = _market_over_under(ht_M, 0.5)
-        pick_ou, conf_ou = format_ou(o_ht, u_ht, 0.5)
-        all_ou = []
-        for line in [0.5, 1.5, 2.5]:
-            ov_l, un_l = _market_over_under(ht_M, line)
-            lbl = "O" if ov_l > un_l else "U"
-            all_ou.append({"pick": "OVER" if ov_l > un_l else "UNDER",
-                          "label": f"{lbl}{line}", "confidence": round(max(ov_l,un_l)*100,1)})
-        markets[f"ou_{ht_str}"] = {"prediction": pick_ou, "confidence": f"{conf_ou:.1f}%",
-                                   "all_thresholds": all_ou}
-
-    correct_scores = _correct_scores(M_ft)[:6]
-
-    return markets, correct_scores, {
-        "home_xg": xg_h,
-        "away_xg": xg_a,
-        "stats_driven": stats_driven,
-        "data_source": (team_stats or {}).get("data_source", "nlp_fallback")
-    }
+    return markets, correct_scores(M), {"home_xg": round(lam, 2), "away_xg": round(mu, 2), "rho": round(rho, 3)}
 
 
-def best_correct_scores(home_xg, away_xg, n=5):
-    """Utility: return top-N most probable correct scores."""
-    M = score_matrix(home_xg, away_xg, 8)
-    return _correct_scores(M)[:n]
+def best_correct_scores(home_xg, away_xg, n=5, rho=0.0):
+    return correct_scores(score_matrix(home_xg, away_xg, rho), n)

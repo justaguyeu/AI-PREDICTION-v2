@@ -82,6 +82,12 @@ async function loadMatches() {
 
     allMatches = data.matches || [];
     $("sidebar-loading").classList.add("hidden");
+    if (data.scraped_at) {
+      $("data-refresh").textContent =
+        `Fixtures & odds: ${data.source || "BetPawa"} · fetched ${new Date(data.scraped_at).toLocaleString()} · ` +
+        `results: football-data.co.uk + ESPN`;
+    }
+    fillLeagueFilter(allMatches);
 
     if (!allMatches.length) {
       $("sidebar-error").classList.remove("hidden");
@@ -106,22 +112,39 @@ function renderMatchList(matches) {
     item.id = "match-item-" + i;
     item.innerHTML = `
       <div class="match-teams">${esc(m.home)} vs ${esc(m.away)}</div>
-      <div class="match-meta">⚽ BetPawa TZ · Click to predict</div>
+      <div class="match-meta">${m.kickoff ? "🕒 " + esc(m.kickoff) + " · " : ""}⚽ ${esc(leagueName(m.league))}${m.odds ? " · " + m.odds.join(" / ") : ""}</div>
     `;
+    item.dataset.league = m.league || "";
     item.addEventListener("click", () => selectMatch(m, item));
     list.appendChild(item);
   });
 }
 
-/* ─── Search ─────────────────────────────────────────────── */
-function initSearch() {
-  $("match-search").addEventListener("input", e => {
-    const q = e.target.value.toLowerCase();
-    document.querySelectorAll(".match-item").forEach(el => {
-      const text = el.querySelector(".match-teams").textContent.toLowerCase();
-      el.style.display = text.includes(q) ? "" : "none";
-    });
+function leagueName(league) {
+  return (league || "BetPawa TZ").replace(/^Football \/ /, "");
+}
+
+function fillLeagueFilter(matches) {
+  const sel = $("league-filter");
+  const leagues = [...new Set(matches.map(m => m.league).filter(Boolean))].sort();
+  sel.innerHTML = `<option value="">All leagues (${matches.length})</option>` + leagues.map(l =>
+    `<option value="${esc(l)}">${esc(leagueName(l))} (${matches.filter(m => m.league === l).length})</option>`
+  ).join("");
+}
+
+/* ─── Search + league filter ─────────────────────────────── */
+function applyFilters() {
+  const q = $("match-search").value.toLowerCase();
+  const lg = $("league-filter").value;
+  document.querySelectorAll(".match-item").forEach(el => {
+    const text = el.querySelector(".match-teams").textContent.toLowerCase();
+    el.style.display = text.includes(q) && (!lg || el.dataset.league === lg) ? "" : "none";
   });
+}
+
+function initSearch() {
+  $("match-search").addEventListener("input", applyFilters);
+  $("league-filter").addEventListener("change", applyFilters);
 }
 
 /* ─── Match Selection ───────────────────────────────────── */
@@ -135,6 +158,8 @@ function selectMatch(match, itemEl) {
   $("analyzing-state").classList.remove("hidden");
   $("result-container").classList.add("hidden");
   $("reasoning-card").classList.add("hidden");
+  $("summary-panel").classList.add("hidden");
+  $("prediction-error").classList.add("hidden");
 
   $("p-home").textContent = match.home;
   $("p-away").textContent = match.away;
@@ -154,7 +179,7 @@ async function performPrediction(match) {
     const res = await fetch("/api/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ home: match.home, away: match.away }),
+      body: JSON.stringify({ home: match.home, away: match.away, league: match.league, odds: match.odds, kickoff: match.kickoff }),
     });
     const data = await res.json();
     $("analyzing-state").classList.add("hidden");
@@ -172,12 +197,10 @@ async function performPrediction(match) {
 
 function showError(msg) {
   $("analyzing-state").classList.add("hidden");
-  $("result-container").classList.remove("hidden");
-  $("result-container").innerHTML = `
-    <div style="text-align:center;padding:40px;color:#ef4444;">
-      <div style="font-size:40px;margin-bottom:12px;">⚠️</div>
-      <p style="color:#94a3b8;">${esc(msg)}</p>
-    </div>`;
+  $("result-container").classList.add("hidden");
+  const box = $("prediction-error");
+  box.innerHTML = `<div style="font-size:40px;margin-bottom:12px;">⚠️</div><p>${esc(msg)}</p>`;
+  box.classList.remove("hidden");
 }
 
 /* ─── Main Render ────────────────────────────────────────── */
@@ -190,7 +213,7 @@ function renderPrediction(data) {
   const reas = data.reasoning          || "";
 
   // Confidence badge
-  $("p-confidence-badge").textContent = conf + " Confidence";
+  $("p-confidence-badge").textContent = conf;
   $("p-confidence-badge").className   = "conf-badge " + conf;
 
   // Data source badge
@@ -198,13 +221,17 @@ function renderPrediction(data) {
   if (src) {
     const srcEl = $("data-source-badge");
     const srcLabels = {
+      "model+market": "📊 Results + Odds",
+      market:         "💹 Odds Only",
+      model:          "📊 Results Only",
+      none:           "⚠️ No Data",
       known_db:       "📊 Real Stats",
       web_extracted:  "🌐 Web Stats",
       league_average: "📐 League Avg",
       nlp_fallback:   "🔍 NLP Only"
     };
     srcEl.textContent = srcLabels[src] || src;
-    srcEl.className = "data-source-badge " + src;
+    srcEl.className = "data-source-badge src-" + src.replace(/[^a-z]/g, "-");
     srcEl.classList.remove("hidden");
   }
 
@@ -234,13 +261,21 @@ function renderPrediction(data) {
     $("stat-a-atk").style.width = Math.min((ts.away_attack / maxVal) * 100, 100) + "%";
     $("stat-a-def").style.width = Math.min((ts.away_defense / maxVal) * 100, 100) + "%";
     $("stats-wrap").classList.remove("hidden");
+  } else {
+    $("stats-wrap").classList.add("hidden");      // no team ratings (odds-only or no data)
   }
 
-  // AI Reasoning
-  if (reas) {
-    $("reasoning-text").textContent = reas;
-    $("reasoning-card").classList.remove("hidden");
-  }
+  // Why / what could make it wrong
+  const factors = data.factors || [];
+  $("factors-list").innerHTML = factors.map(f => `<li>${esc(f)}</li>`).join("");
+  $("reasoning-text").textContent = factors.length ? "" : reas;
+  $("risks-list").innerHTML = (data.risks || []).map(r => `<li>${esc(r)}</li>`).join("");
+  if (factors.length || reas) $("reasoning-card").classList.remove("hidden");
+
+  renderSummary(data);
+  renderValue(data);
+  renderForm(data);
+  renderSources(data);
 
   // ── All 14 Markets ────────────────────────────────────────────────────────
   renderCard1x2(m["1x2_ft"], "pick-1x2-ft", "conf-1x2-ft", "seg-1x2-1", "seg-1x2-x", "seg-1x2-2");
@@ -368,4 +403,116 @@ function esc(str) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+/* ─── Summary: probabilities + separate confidence measures ─── */
+function renderSummary(data) {
+  const p = data.probabilities;
+  if (!p) return;
+  $("sum-home").textContent = p.home.toFixed(1) + "%";
+  $("sum-draw").textContent = p.draw.toFixed(1) + "%";
+  $("sum-away").textContent = p.away.toFixed(1) + "%";
+  const dr = data.draw_risk ? ` · draw risk ${data.draw_risk.level}` : "";
+  const hc = p.high_confidence
+    ? `<span class="tag good">high-confidence pick</span>`
+    : `<span class="tag">most likely, not a high-confidence pick</span>`;
+  $("sum-most-likely").innerHTML =
+    `Most likely: <b>${esc(p.most_likely)}</b> (historically wins ${p.most_likely_hit_rate}%) ${hc}${esc(dr)}`;
+  const xg = data.expected_goals || {}, g = data.goals || {};
+  $("sum-goals").textContent =
+    `Expected goals ${xg.home} – ${xg.away} · BTTS ${g.btts_yes}% · Over 1.5 ${g.over_1_5}% · ` +
+    `Over 2.5 ${g.over_2_5}% · Over 3.5 ${g.over_3_5}%`;
+
+  const a = data.assessment || {}, crit = a.criteria || {};
+  const badge = (label, obj, key) => obj ? `<div class="assess" title="${esc(crit[key] || "")}">
+      <span class="assess-label">${label}</span>
+      <span class="assess-val lvl-${esc(obj.level)}">${esc(obj.level)}</span>
+      ${obj.reasons ? `<span class="assess-why">${esc(obj.reasons.join(" "))}</span>` : ""}
+    </div>` : "";
+  $("assess-badges").innerHTML =
+    badge("Prediction strength", a.prediction_strength, "prediction_strength") +
+    badge("Model confidence", a.model_confidence, "model_confidence") +
+    badge("Data quality", a.data_quality, "data_quality");
+  $("summary-panel").classList.remove("hidden");
+}
+
+/* ─── Model vs bookmaker, expected value ─────────────────── */
+function renderValue(data) {
+  const v = data.value, meta = data.analysis_meta || {};
+  if (!v) {
+    $("value-table").innerHTML = `<p class="muted">No valid odds for this match, so no comparison or value check.</p>`;
+    $("value-note").textContent = "";
+    return;
+  }
+  const mo = meta.model_1x2 || {};
+  const keys = ["1", "X", "2"];
+  const pctEv = x => x === null || x === undefined ? "–" : `${x > 0 ? "+" : ""}${x}%`;
+  $("value-table").innerHTML = `<table class="data-table">
+    <tr><th>Outcome</th><th>Odds</th><th>Implied</th><th>Fair (no margin) = published</th><th>Ratings model</th>
+      <th>EV at published</th><th>EV at model</th></tr>
+    ${v.outcomes.map(o => `<tr class="${o.flag ? "flag" : ""}">
+      <td>${esc(o.outcome)}</td><td>${o.odds.toFixed(2)}</td><td>${o.implied}%</td><td>${o.probability}%</td>
+      <td>${o.model_probability !== null && o.model_probability !== undefined ? o.model_probability + "%" : "–"}</td>
+      <td class="neg">${pctEv(o.ev)}</td>
+      <td class="${o.ev_model > 0 ? "pos" : "neg"}">${pctEv(o.ev_model)}${o.flag ? " ⚑" : ""}</td></tr>`).join("")}
+  </table>`;
+  $("value-note").textContent =
+    `Bookmaker margin ${v.overround}%. ` +
+    (v.threshold === null ? "Value flags are OFF. " : `⚑ = model EV ≥ ${v.threshold}%. `) +
+    `${v.assumptions} ${v.history}`;
+}
+
+/* ─── Form, venue form, head-to-head ─────────────────────── */
+function seq(s) {
+  return (s || "").split("").map(c => `<span class="res res-${c}">${c}</span>`).join("");
+}
+
+function formRow(team, f) {
+  if (!f) return `<tr><td>${esc(team)}</td><td colspan="6" class="muted">no matches</td></tr>`;
+  const xg = f.xg_for !== undefined ? `${f.xg_for} / ${f.xg_against}` : "–";
+  const opp = f.opponent_strength !== undefined ? (f.opponent_strength > 0 ? "+" : "") + f.opponent_strength : "–";
+  return `<tr><td>${esc(team)}</td><td>${seq(f.sequence)}</td><td>${f.w}-${f.d}-${f.l}</td>
+    <td>${f.gf}:${f.ga}</td><td>${f.ppg}</td><td>${xg}</td><td>${opp}</td></tr>`;
+}
+
+function renderForm(data) {
+  const c = data.context;
+  if (!c) {
+    $("form-table").innerHTML = `<p class="muted">No results data for these teams (odds-only prediction).</p>`;
+    $("venue-form").innerHTML = `<p class="muted">No results data.</p>`;
+    $("h2h-list").innerHTML = `<p class="muted">No results data.</p>`;
+    $("form-scope").textContent = "";
+    return;
+  }
+  $("form-scope").textContent = "league matches only";
+  const head = `<tr><th>Team</th><th>Results (newest first)</th><th>W-D-L</th><th>Goals</th><th>Pts/game</th>
+    <th>xG for / against</th><th>Opponents vs league avg</th></tr>`;
+  $("form-table").innerHTML = ["last5", "last10", "last15"].map(k => `
+    <div class="sub-head">Last ${k.replace("last", "")} matches</div>
+    <table class="data-table">${head}${formRow(data.home, c.home_form[k])}${formRow(data.away, c.away_form[k])}</table>`
+  ).join("") + `<p class="fine-print">Rest: ${esc(data.home)} ${c.rest_days.home ?? "?"} days, ${esc(data.away)} ` +
+    `${c.rest_days.away ?? "?"} days since their last league match. Data through ${esc(c.data_through)}.</p>`;
+
+  const v = (label, f) => f ? `<div class="venue-line"><b>${esc(label)}</b>: ${seq(f.sequence)}
+      ${f.w}W ${f.d}D ${f.l}L · goals ${f.gf}:${f.ga} · clean sheets ${f.clean_sheets} · failed to score ${f.failed_to_score}</div>`
+    : `<div class="venue-line muted">${esc(label)}: no matches</div>`;
+  $("venue-form").innerHTML = v(`${data.home} at home (last ${c.home_at_home ? c.home_at_home.matches : 0})`, c.home_at_home) +
+    v(`${data.away} away (last ${c.away_away ? c.away_away.matches : 0})`, c.away_away);
+
+  const h = c.h2h;
+  $("h2h-list").innerHTML = h.meetings.length
+    ? `<div class="venue-line">${esc(data.home)} ${h.home_wins} · draws ${h.draws} · ${esc(data.away)} ${h.away_wins}</div>` +
+      h.meetings.map(m => `<div class="h2h-row">${esc(m.date)} &nbsp; ${esc(m.home)} <b>${esc(m.score)}</b> ${esc(m.away)}</div>`).join("") +
+      `<p class="fine-print">Shown for context. Not used in the probabilities: recent form and ratings predict better.</p>`
+    : `<p class="muted">No meetings in the last two seasons of data.</p>`;
+}
+
+/* ─── Sources ─────────────────────────────────────────────── */
+function renderSources(data) {
+  const src = (data.sources || []).map(s =>
+    `${esc(s.name)}${s.data_through ? " (results through " + esc(s.data_through) + ")" : ""}`).join(" · ");
+  $("sources-list").innerHTML =
+    `${src || "No data sources for this match."}<br>` +
+    `Prediction made ${esc(data.created_at || "?")} by model ${esc(data.model_version || "?")}. ` +
+    `Injuries, suspensions and line-ups: not available in this system — check official team news.`;
 }
